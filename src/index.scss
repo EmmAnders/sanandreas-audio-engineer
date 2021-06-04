@@ -40,7 +40,10 @@ video {
   font-size: 100%;
   list-style: none;
   border: 0;
-  box-sizing: border-box;
+  text-decoration: none;
+  color: $black-text;
+  background-color: $bg-color-light;
+  /*   box-sizing: border-box; */
 }
 
 body {

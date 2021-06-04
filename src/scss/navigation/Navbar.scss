@@ -1,1 +1,42 @@
-@import "../variables.scss";
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+.nav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 2000;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 5%;
+   background: green;
+
+    a {
+      font-size: 3rem;
+      background: green;
+    }
+  }
+
+  .desktopNav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: static;
+    a {
+      margin-left: 1.5rem;
+    }
+  }
+}

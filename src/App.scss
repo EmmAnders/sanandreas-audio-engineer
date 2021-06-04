@@ -1,10 +1,11 @@
-@import "./scss/variables.scss";
+@import "./scss/Variables.scss";
 @import "./scss/Mixins.scss";
 
 .App {
   height: 100vh;
   margin: 5%;
-  border: 1px solid black;
+  color: $black-text;
+  background-color: $bg-color-light;
 
   @include for-tablet-portrait-up {
   }
