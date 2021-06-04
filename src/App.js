@@ -2,6 +2,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import "./App.scss";
 
+import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
 import MusicBlog from "./pages/MusicBlog";
 import Projects from "./pages/Projects";
@@ -10,6 +11,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <BrowserRouter>
         <Route exact path="/" component={Home} />
         <Route exact path="/projects" component={Projects} />
