@@ -1,0 +1,21 @@
+@import "./scss/variables.scss";
+@import "./scss/Mixins.scss";
+
+.App {
+  height: 100vh;
+  margin: 5%;
+  border: 1px solid black;
+
+  @include for-tablet-portrait-up {
+  }
+
+  @include for-tablet-landscape-up {
+  }
+
+  @include for-desktop-up {
+  }
+
+  @include for-big-desktop-up {
+    margin: 10%;
+  }
+}
