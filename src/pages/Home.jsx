@@ -1,4 +1,4 @@
-import "../scss/Home.scss";
+import "../scss/pages/MusicBlog.scss";
 
 const Home = () => {
   return <div>Home</div>;
