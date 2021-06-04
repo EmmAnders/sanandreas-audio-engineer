@@ -1,4 +1,4 @@
-import "../scss/ProjectDetails.scss";
+import "../scss/pages/ProjectDetails.scss";
 
 const ProjectDetails = () => {
   return <div>Project Details</div>;
