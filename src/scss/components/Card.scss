@@ -1,0 +1,24 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+.cardContainer {
+  width: 99%;
+  height: 100%;
+  cursor: pointer;
+  padding-bottom: 5rem;
+
+  h2 {
+    color: $black-text;
+    font-size: $paragraph;
+  }
+
+  p {
+    color: $grey;
+    font-size: $small;
+  }
+
+  .img {
+    width: 100%;
+    height: 100%;
+  }
+}
