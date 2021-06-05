@@ -4,7 +4,11 @@ import sampleImage from "../assets/sample.png";
 
 const Card = (props) => {
   return (
-    <div className={`cardContainer ${props.className}`} key={props.key}>
+    <div
+      onClick={props.onClick}
+      className={`cardContainer ${props.className}`}
+      key={props.key}
+    >
       <img className="img" src={sampleImage} alt="" />
       <h2>{props.title}</h2>
       <p>{props.desc}</p>

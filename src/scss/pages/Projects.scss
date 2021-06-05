@@ -1,12 +1,15 @@
 @import "../variables.scss";
+@import "../Mixins.scss";
 
 .projects {
-
-
   .wrapper {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
     grid-gap: 0.5%;
+
+    @include tablet {
+      grid-template-columns: 50% 50%;
+    }
 
     .item {
       height: 100%;
