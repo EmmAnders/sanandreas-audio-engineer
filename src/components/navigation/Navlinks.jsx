@@ -1,20 +1,42 @@
 import { NavLink } from "react-router-dom";
 
 const Navlinks = (props) => {
+  const links = [
+    {
+      to: "/projects",
+      name: "PROJECTS",
+    },
+    {
+      to: "/music-blog",
+      name: "MUSIC BLOG",
+    },
+    {
+      to: "/contact",
+      name: "CONTACT",
+    },
+  ];
+
   return (
-    <div className={props.className}>
-      <NavLink exact to="/projects">
-        PROJECTS
-      </NavLink>
-
-      <NavLink exact to="/music-blog">
-        MUSIC BLOG
-      </NavLink>
-
-      <NavLink exact to="/contact ">
-        CONTACT
-      </NavLink>
-    </div>
+    <ul className={props.className}>
+      {links.map((link, i) => {
+        return (
+          <li>
+            <NavLink
+              key={i}
+              onClick={props.onClick}
+              to={link.to}
+              activeStyle={
+                {
+                  /*     color: "#B5B5B5", */
+                }
+              }
+            >
+              {link.name}
+            </NavLink>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

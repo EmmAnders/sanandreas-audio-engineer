@@ -3,20 +3,11 @@
 
 .App {
   height: 100vh;
-  margin: 5%;
+  margin: $page-margin;
   color: $black-text;
-  background-color: $bg-color-light;
+  overflow-x: hidden;
 
-  @include for-tablet-portrait-up {
-  }
-
-  @include for-tablet-landscape-up {
-  }
-
-  @include for-desktop-up {
-  }
-
-  @include for-big-desktop-up {
+  @include desktop-xl {
     margin: 10%;
   }
 }

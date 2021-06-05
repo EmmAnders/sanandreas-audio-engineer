@@ -1,7 +1,7 @@
-import "../scss/pages/MusicBlog.scss";
+import "../scss/pages/Home.scss";
 
 const Home = () => {
-  return <div></div>;
+  return <div className="home"></div>;
 };
 
 export default Home;

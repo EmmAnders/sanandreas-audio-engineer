@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NavLinks from "./Navlinks";
+import "../../scss/Variables.scss";
 
 import { Squeeze as Hamburger } from "hamburger-react";
 
@@ -20,13 +21,20 @@ const Navbar = () => {
         <div className="logo">SANANDREAS</div>
         {width < breakpoint ? (
           <div>
-            <Hamburger
-             /*  color="#4FD1C5" */
-              label="Show menu"
-              toggled={isOpen}
-              toggle={setOpen}
-            />
-            {isOpen ? <NavLinks className="mobileNav" /> : null}
+            <div className="burger">
+              <Hamburger
+                color="#262626"
+                label="Show menu burger"
+                toggled={isOpen}
+                toggle={setOpen}
+              />
+            </div>
+            {isOpen ? (
+              <NavLinks
+                onClick={() => setOpen(!isOpen)}
+                className="mobileNav"
+              />
+            ) : null}
           </div>
         ) : (
           <NavLinks className="desktopNav" />
