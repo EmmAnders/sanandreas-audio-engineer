@@ -11,8 +11,8 @@ import "../scss/pages/Projects.scss";
 const Projects = () => {
   const history = useHistory();
 
-  const handleClickToProjectId = (projectId) => {
-    history.push(`/projects/${projectId}`);
+  const handleClickToProjectId = (id) => {
+    history.push(`/projects/${id}`);
     window.scrollTo(0, 0);
   };
 
