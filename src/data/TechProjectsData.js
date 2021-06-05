@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const TechProjectsData = [
   {
-    id: uuidv4(),
+    id: 3,
     title: "PROJECT TITLE 1",
     descShort: "LOREM IPSUM 1",
     summary:
@@ -14,7 +14,7 @@ export const TechProjectsData = [
   },
 
   {
-    id: uuidv4(),
+    id: 4,
     title: "PROJECT TITLE 2",
     descShort: "LOREM IPSUM 2",
     summary:
@@ -24,6 +24,4 @@ export const TechProjectsData = [
     images: [],
     video: "",
   },
-
-
 ];

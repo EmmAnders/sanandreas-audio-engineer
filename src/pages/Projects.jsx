@@ -11,8 +11,8 @@ import "../scss/pages/Projects.scss";
 const Projects = () => {
   const history = useHistory();
 
-  const handleClickToProjectId = (projectName, projectId) => {
-    history.push(`/projects/${projectName}/${projectId}`);
+  const handleClickToProjectId = (id) => {
+    history.push(`/projects/${id}`);
     window.scrollTo(0, 0);
   };
 
@@ -24,7 +24,7 @@ const Projects = () => {
             {TechProjectsData.map((data, i) => {
               return (
                 <Card
-                  onClick={() => handleClickToProjectId(data.title, data.id)}
+                  onClick={() => handleClickToProjectId(data.id)}
                   key={data.id}
                   className="item"
                   image={data.image}
@@ -37,7 +37,7 @@ const Projects = () => {
             {MusicProductionData.map((data, i) => {
               return (
                 <Card
-                  onClick={() => handleClickToProjectId(data.title, data.id)}
+                  onClick={() => handleClickToProjectId(data.id)}
                   className="item"
                   key={data.id}
                   title={data.title.toUpperCase()}
@@ -52,7 +52,7 @@ const Projects = () => {
             {TechProjectsData.map((data, i) => {
               return (
                 <Card
-                  onClick={() => handleClickToProjectId(data.title, data.id)}
+                  onClick={() => handleClickToProjectId(data.id)}
                   className={"item"}
                   key={data.id}
                   title={data.title.toUpperCase()}
@@ -68,7 +68,7 @@ const Projects = () => {
             {MusicProductionData.map((data, i) => {
               return (
                 <Card
-                  onClick={() => handleClickToProjectId(data.title, data.id)}
+                  onClick={() => handleClickToProjectId(data.id)}
                   className={"item"}
                   key={data.id}
                   title={data.title.toUpperCase()}
