@@ -1,21 +1,13 @@
-@import "./scss/variables.scss";
+@import "./scss/Variables.scss";
 @import "./scss/Mixins.scss";
 
 .App {
   height: 100vh;
-  margin: 5%;
-  border: 1px solid black;
+  margin: $page-margin;
+  color: $black-text;
+  overflow-x: hidden;
 
-  @include for-tablet-portrait-up {
-  }
-
-  @include for-tablet-landscape-up {
-  }
-
-  @include for-desktop-up {
-  }
-
-  @include for-big-desktop-up {
+  @include desktop-xl {
     margin: 10%;
   }
 }
