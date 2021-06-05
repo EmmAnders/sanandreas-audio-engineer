@@ -16,11 +16,7 @@ function App() {
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/projects" component={Projects} />
-        <Route
-          exact
-          path="/projects/:projectName/:id"
-          component={ProjectDetails}
-        />
+        <Route exact path="/projects/:projectId" component={ProjectDetails} />
         <Route exact path="/music-blog" component={MusicBlog} />
       </BrowserRouter>
     </div>
