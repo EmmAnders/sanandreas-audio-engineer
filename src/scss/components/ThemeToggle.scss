@@ -1,0 +1,26 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+body.dark-mode {
+  background: $bg-color-dark;
+  color: $white-text;
+  a {
+    color: $white-text;
+  }
+
+  .tabs__tab {
+    color: #f7f7f774;
+  }
+
+  .tabs__tab-active {
+    color: $white-text;
+  }
+
+  .tabs__tab-active:after {
+    border-bottom: 2px solid $white-text;
+  }
+  /* 
+  .tabs__tab:hover {
+    color: $white-text;
+  } */
+}
