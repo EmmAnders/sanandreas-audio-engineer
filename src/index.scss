@@ -21,7 +21,8 @@ body {
   font-weight: 200;
   font-style: normal;
   font-size: 80%;
-
+  transition: background 0.2s ease;
+  
   a {
     color: $black-text;
   }

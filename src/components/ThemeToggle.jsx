@@ -20,10 +20,10 @@ const ThemeToggle = () => {
   });
 
   return (
-    <div>
-      <button onClick={handleChange}>
-        {theme ? "Light Mode" : "Dark Mode"}
-      </button>{" "}
+    <div className="toggleContainer">
+      <button onClick={() => handleChange()} className="toggleBtn">
+       {theme? "DARK": "LIGHT"}
+      </button>
     </div>
   );
 };
