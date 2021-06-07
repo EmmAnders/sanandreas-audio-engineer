@@ -4,7 +4,6 @@
 .App {
   height: 100vh;
   margin: $page-margin;
-  color: $black-text;
 
   @include desktop-xl {
     margin: 10%;
