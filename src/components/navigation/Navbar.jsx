@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavLinks from "./Navlinks";
 import "../../scss/Variables.scss";
@@ -18,7 +19,9 @@ const Navbar = () => {
   return (
     <header>
       <nav className="nav">
-        <div className="logo">SANANDREAS</div>
+        <div className="logo">
+          <NavLink to="/">SANANDREAS</NavLink>
+        </div>
         {width < breakpoint ? (
           <div>
             <div className="burger">
