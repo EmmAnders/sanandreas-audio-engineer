@@ -11,7 +11,7 @@ export const MusicProductionData = [
   {
     id: 2,
     title: "San Andreas - Double U",
-    bandcampUrl:
+    embed:
       "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/833899528&color=%23262626&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
   },
 ];

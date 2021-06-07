@@ -19,9 +19,10 @@ html {
 body {
   background: $bg-color-light;
   font-family: $primary-font;
-  font-weight: 400;
+  font-weight: 200;
   font-style: normal;
   font-size: 80%;
+
 
   @include desktop {
     font-size: 100%;
