@@ -1,0 +1,26 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+footer {
+  background: $bg-color-light;
+  color: $black-text;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0rem;
+  }
+
+  li:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  a {
+    font-size: $small;
+  }
+}

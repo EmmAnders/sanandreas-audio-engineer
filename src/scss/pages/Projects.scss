@@ -2,6 +2,7 @@
 @import "../Mixins.scss";
 
 .projects {
+  height: 100%;
   .wrapper {
     display: grid;
     grid-template-columns: 100%;

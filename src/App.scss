@@ -2,8 +2,8 @@
 @import "./scss/Mixins.scss";
 
 .App {
-  height: 100vh;
   margin: $page-margin;
+  height: 100%;
 
   @include desktop-xl {
     margin: 10%;

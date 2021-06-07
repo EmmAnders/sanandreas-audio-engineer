@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 import { MusicProductionData } from "../data/MusicProductionData";
 import { TechProjectsData } from "../data/TechProjectsData";
 
+import { motion } from "framer-motion";
+import { pageAnimation } from "../components/PageAnimation";
+
 import { Tabs, Tab } from "../components/Tabs";
 import Card from "../components/Card";
 
@@ -17,7 +20,13 @@ const Projects = () => {
   };
 
   return (
-    <main className="projects">
+    <motion.main
+    exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      className="projects"
+    >
       <Tabs>
         <Tab label={"All"} tabName={"ALL"}>
           <div className="wrapper">
@@ -78,7 +87,7 @@ const Projects = () => {
           </div>
         </Tab>
       </Tabs>
-    </main>
+    </motion.main>
   );
 };
 
