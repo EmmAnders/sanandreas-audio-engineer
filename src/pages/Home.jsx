@@ -6,7 +6,7 @@ import { pageAnimation } from "../components/PageAnimation";
 const Home = () => {
   return (
     <motion.div
-    exit="exit"
+      exit="exit"
       variants={pageAnimation}
       initial="hidden"
       animate="show"

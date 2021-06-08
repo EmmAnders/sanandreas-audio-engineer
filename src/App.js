@@ -9,6 +9,7 @@ import { useEffect, useRef } from "react";
 import "./App.scss";
 import "./scss/components/ThemeToggle.scss";
 
+import SmoothScroll from "./components/SmoothScroll";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
 import MusicBlog from "./pages/MusicBlog";
@@ -20,12 +21,11 @@ import Footer from "./components/Footer";
 import { AnimatePresence } from "framer-motion";
 
 const App = () => {
-  /*   let location = useLocation(); */
-
   return (
     <div className="App ">
       <Router>
         <Navbar />
+
         <Route
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter initial={false}>

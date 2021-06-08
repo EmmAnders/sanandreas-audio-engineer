@@ -8,41 +8,25 @@ import { MusicProductionData } from "../data/MusicProductionData";
 import { TechProjectsData } from "../data/TechProjectsData";
 
 import { motion } from "framer-motion";
-import { pageAnimation } from "../components/PageAnimation";
 
-let images = [
-  {
-    src: "https://unsplash.com/photos/jUwvjOmCTWc",
-    title: "Test",
-    subtitle: "subtitle ",
-  },
-  {
-    src: "https://unsplash.com/photos/xTI9YZfbXQc",
-    title: "Test 2",
-    subtitle: "subtitle ",
-  },
-
-  {
-    src: "https://unsplash.com/photos/xTI9YZfbXQc",
-    title: "Test 3",
-    subtitle: "subtitle ",
-  },
-
-  {
-    src: "https://unsplash.com/photos/u0BVH8IOTUk",
-    title: "Test 4",
-    subtitle: "subtitle ",
-  },
-
-  {
-    src: "https://unsplash.com/photos/ehZ9Aeu2Elo",
-    title: "Test 5",
-    subtitle: "subtitle ",
-  },
-];
+import {
+  pageAnimation,
+  fade,
+  scrollReveal,
+  photoAnim,
+  titleAnim,
+  slider,
+  sentence,
+} from "../components/PageAnimation";
+import { useScroll } from "../hooks/useScroll";
 
 const ProjectDetails = (props) => {
   const data = [...MusicProductionData, ...TechProjectsData];
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
+  const [element3, controls3] = useScroll();
+  const [element4, controls4] = useScroll();
+  const [element5, controls5] = useScroll();
 
   return (
     <motion.section
@@ -56,28 +40,58 @@ const ProjectDetails = (props) => {
         if (d.id.toString() === props.match.params.id) {
           return (
             <div key={d.id}>
-              <div className="title">
+              <motion.div
+                variants={fade}
+                animate={controls5}
+                initial="hidden"
+                ref={element5}
+                className="title"
+              >
                 <h1>{d.title}</h1>
-              </div>
+              </motion.div>
 
               <section className="images">
-                <div className="rowLayout">
+                <motion.div
+                  variants={fade}
+                  animate={controls}
+                  initial="hidden"
+                  ref={element}
+                  className="rowLayout"
+                >
                   <h2>summary</h2>
                   <p>{d.summary}</p>
-                </div>
+                </motion.div>
 
-                <div className="columnLayout">
+                <motion.div
+                  variants={slider}
+                  animate={controls2}
+                  initial="hidden"
+                  ref={element2}
+                  className="columnLayout"
+                >
                   <h2>Ipsum</h2>
                   <img src={sampleImage} alt="" />
-                </div>
+                </motion.div>
               </section>
 
-              <section className="about">
+              <motion.section
+                variants={fade}
+                animate={controls3}
+                initial="hidden"
+                ref={element3}
+                className="about"
+              >
                 <h3>About</h3>
                 <p>{d.body}</p>
-              </section>
+              </motion.section>
 
-              <section className="video">
+              <motion.section
+                variants={fade}
+                animate={controls4}
+                initial="hidden"
+                ref={element4}
+                className="video"
+              >
                 <iframe
                   width="100%"
                   height="700px"
@@ -87,7 +101,7 @@ const ProjectDetails = (props) => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
-              </section>
+              </motion.section>
             </div>
           );
         }

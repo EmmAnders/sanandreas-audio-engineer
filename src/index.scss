@@ -14,6 +14,17 @@ html {
   overflow-x: hidden;
 }
 
+html,
+body,
+#app,
+#app > div {
+  height: 100%;
+}
+
+body > #root > div {
+  height: 100vh;
+}
+
 body {
   background: $bg-color-light;
   color: $black-text;
@@ -22,8 +33,10 @@ body {
   font-style: normal;
   font-size: 80%;
   transition: background 0.9s ease;
-  display: flex;
-  flex-direction: column;
+  /*   display: flex;
+  flex-direction: column; */
+  /*  overscroll-behavior-y: none;
+  user-select: none; */
 
   a {
     color: $black-text;

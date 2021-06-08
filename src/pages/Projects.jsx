@@ -21,7 +21,7 @@ const Projects = () => {
 
   return (
     <motion.main
-    exit="exit"
+      exit="exit"
       variants={pageAnimation}
       initial="hidden"
       animate="show"

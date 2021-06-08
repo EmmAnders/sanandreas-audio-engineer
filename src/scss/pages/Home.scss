@@ -1,8 +1,10 @@
 @import "../Variables.scss";
 
 .home {
-  position: absolute;
-  bottom: 10vh;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 11vh;
   
   h1 {
     letter-spacing: 2px;
