@@ -1,85 +1,113 @@
 import { useState, useEffect, useRef } from "react";
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+import { TimelineLite, Power3, TweenMax } from "gsap";
 
 import sampleImage from "../assets/sample.jpg";
+import arrow from "../assets/arrow-right.svg";
 
 import "../scss/pages/ProjectDetails.scss";
 
 import { MusicProductionData } from "../data/MusicProductionData";
 import { TechProjectsData } from "../data/TechProjectsData";
 
-import CSSRulePlugin from "gsap/CSSRulePlugin";
-import { TimelineLite, Power2 } from "gsap";
-
 const ProjectDetails = (props) => {
   const data = [...MusicProductionData, ...TechProjectsData];
-  let container = useRef(null);
-  let image = useRef(null);
-  let imageReveal = CSSRulePlugin.getRule(".imgContainer:after");
+  let app = useRef(null);
+  let images = useRef(null);
+  let content = useRef(null);
 
-  const tl = new TimelineLite();
+  let tl = new TimelineLite({ delay: 0.8 });
 
   useEffect(() => {
-    // This removes flashing of image
-    tl.to(container, 0, { css: { visibility: "visible" } })
-      .to(imageReveal, 1.4, { width: " 0%", ease: Power2.easeInOut })
-      .from(image, 1.4, { scale: 1.6, ease: Power2.easeInOut, delay: -1.6 });
-  });
+    //IMAGES VARIABLES
+    const image1 = images.firstElementChild;
+    const image2 = images.lastElementChild;
+
+    //Content Variables
+
+    const headlineFirst = content.children[0].children[0];
+    const headlineSecond = headlineFirst.nextSibling;
+    const headlineThird = headlineSecond.nextSibling;
+    const contentP = content.children[1];
+    const contentButton = content.children[2];
+
+    TweenMax.to(app, 0, { css: { visibility: "visible" } });
+
+    // Image Animation
+    tl.from(image1, 1.2, { y: 1280, ease: Power3.easeOut }, "Start").from(
+      image1.firstElementChild,
+      2,
+      { scale: 1.6, ease: Power3.easeOut },
+      0.2
+    );
+
+    tl.from(image2, 1.2, { y: 1280, ease: Power3.easeOut }, 0.2).from(
+      image2.firstElementChild,
+      2,
+      { scale: 1.6, ease: Power3.easeOut },
+      0.2
+    );
+
+    // Text Animation
+    tl.staggerFrom(
+      [headlineFirst.children, headlineSecond.children, headlineThird.children],
+      1,
+      { y: 44, ease: Power3.easeOut, delay: 0.8 },
+      0.15,
+      "Start"
+    )
+      .from(contentP, 1, { y: 20, opacity: 0, ease: Power3.easeOut }, 1.4)
+      .from(contentButton, 1, { y: 20, opacity: 0, ease: Power3.easeOut }, 1.6);
+  }, [tl]);
 
   return (
-    <section className="projectDetails">
-      {data.map((d) => {
-        if (d.id.toString() === props.match.params.id) {
-          return (
-            <div>
-              <h1>{d.title}</h1>
-
-              <div
-                ref={(el) => (container = el)}
-                className="projectContainer"
-                key={d.id}
-              >
-                <div className="imgContainer">
-                  <img ref={(el) => (image = el)} src={sampleImage} alt="" />
+    <div ref={(el) => (app = el)} className="hero">
+      <div className="container">
+        <div className="heroInner">
+          <div className="heroContent">
+            <div ref={(el) => (content = el)} className="heroContentInner">
+              <h1>
+                <div className="heroContentLine">
+                  <div className="heroContentLineInner">PROJECT PROJECT</div>
                 </div>
 
-                {/*  <div className="title">
-                <h1>{d.title}</h1>
-              </div>
-
-              <section className="images">
-                <div className="rowLayout">
-                  <h2>summary</h2>
-                  <p>{d.summary}</p>
+                <div className="heroContentLine">
+                  <div className="heroContentLineInner">NAME NAME</div>
                 </div>
 
-                <div className="columnLayout">
-                  <h2>Ipsum</h2>
-                
+                <div className="heroContentLine">
+                  <div className="heroContentLineInner">ELSE ELSE</div>
                 </div>
-              </section>
-
-              <section className="about">
-                <h3>About</h3>
-                <p>{d.body}</p>
-              </section>
-
-              <section className="video">
-                <iframe
-                  width="100%"
-                  height="700px"
-                  src={d.video}
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </section> */}
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptas omnis debitis molestias qui a deserunt reprehenderit
+                veritatis accusamus harum incidunt consequuntur ipsum ex in,
+                quas ducimus possimus, vel, error eos.
+              </p>
+              <div className="btnRow">
+                <button className="exploreBtn">
+                  View Project
+                  <div className="arrow">
+                    <img src={arrow} alt="arrow" />
+                  </div>
+                </button>
               </div>
             </div>
-          );
-        }
-      })}
-    </section>
+          </div>
+          <div className="heroImages">
+            <div ref={(el) => (images = el)} className="heroImagesInner">
+              <div className="heroImage one">
+                <img src={sampleImage} alt="" />
+              </div>
+              <div className="heroImage two">
+                <img src={sampleImage} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

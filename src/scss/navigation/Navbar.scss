@@ -9,11 +9,11 @@
   right: 5%;
   background: $bg-color-light;
   z-index: 3000;
-  padding: 2.5% 0%;
+  padding: 1% 0%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   @include tablet {
     align-items: flex-start;
   }
