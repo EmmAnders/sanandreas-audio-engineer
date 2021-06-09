@@ -2,6 +2,42 @@
 @import "../Mixins.scss";
 
 .projectDetails {
+  h1 {
+    font-size: 10vh;
+    letter-spacing: 2px;
+    margin-top: 15vh;
+  }
+  .projectContainer {
+    visibility: hidden;
+  }
+}
+
+.imgContainer {
+  width: 50%;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  /*  display: flex;
+  justify-content: center;
+  align-items: center; */
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 400px;
+    background: $bg-color-light;
+    top: 0;
+    right: 0;
+  }
+  img {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* .projectDetails {
   .title {
     h1 {
       display: flex;
@@ -91,3 +127,4 @@
   @include tablet {
   }
 }
+ */

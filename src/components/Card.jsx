@@ -1,6 +1,6 @@
 import "../scss/components/Card.scss";
 
-import sampleImage from "../assets/sample.png";
+import sampleImage from "../assets/sample.jpg";
 
 const Card = (props) => {
   return (
