@@ -1,55 +1,32 @@
-import React, { useRef } from "react";
-import { useIntersection } from "react-use";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import "../scss/pages/Project.scss";
 import sample from "../assets/sample.jpg";
 
 const Project = () => {
-  const sectionRef = useRef(null);
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  });
-
-  const fadeIn = (element) => {
-    gsap.to(element, 1, {
-      opacity: 1,
-      y: -70,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.3,
-      },
-    });
-  };
-
-  /*   const fadeOut = (element) => {
-    gsap.to(element, 1, {
-      opacity: 0,
-      y: -20,
-      ease: "power4.out",
-    });
-  }; */
-
-  intersection && intersection.intersectionRatio < 0.5
-    ? fadeIn(".fadeIn")
-    : fadeIn(".fadeIn");
+  const ref = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
 
   return (
-    <div className="project">
-      <section ref={sectionRef} className="title">
+    <div ref={ref} className="project">
+      <section className="title">
         <h1 className="fadeIn">PROJECT NAME</h1>
       </section>
 
       <section className="section-1">
         <div className="rowLayout">
-          <h2>summary</h2>
-          <p>Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.</p>
+          <h2 className="fadeIn">summary</h2>
+          <p className="fadeIn">
+            Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.
+            Lorem Ipsum.
+          </p>
         </div>
 
         <div className="columnLayout">
-          <h2>2021</h2>
-          <img src={sample} alt="" />
+          <h2 className="fadeIn">2021</h2>
+          <img className="fadeIn img" src={sample} alt="" />
         </div>
       </section>
 
@@ -71,9 +48,6 @@ const Project = () => {
             arcu risus quis. Lectus sit amet est placerat in egestas erat
             imperdiet. Cum sociis natoque penatibus et magnis dis.
           </p>
-          <div className="btn-row fadeIn">
-            <a href="/">Click here bruh</a>
-          </div>
         </div>
       </div>
 
@@ -89,9 +63,6 @@ const Project = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <div className="btn-row fadeIn">
-            <a href="/">Click here bruh</a>
-          </div>
         </div>
       </div>
     </div>

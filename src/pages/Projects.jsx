@@ -1,11 +1,14 @@
 import { useHistory } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+import { TimelineLite, Power2, TweenMax } from "gsap";
 
 import { MusicProductionData } from "../data/MusicProductionData";
 import { TechProjectsData } from "../data/TechProjectsData";
 
 import { Tabs, Tab } from "../components/Tabs";
 import Card from "../components/Card";
-
+import sampleImage from "../assets/sample.jpg";
 import "../scss/pages/Projects.scss";
 
 const Projects = () => {
@@ -24,10 +27,11 @@ const Projects = () => {
             {TechProjectsData.map((data, i) => {
               return (
                 <Card
+                  src={sampleImage}
                   onClick={() => handleClickToProjectId(data.id)}
                   key={data.id}
                   className="item"
-                  image={data.image}
+                  /*      image={sampleImage} */
                   title={data.title.toUpperCase()}
                   desc={data.descShort}
                 ></Card>

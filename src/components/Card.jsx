@@ -9,7 +9,7 @@ const Card = (props) => {
       className={`cardContainer ${props.className}`}
       key={props.key}
     >
-      <img className="img" src={sampleImage} alt="" />
+      <img ref={props.ref} className="img" src={sampleImage} alt="" />
       <h2>{props.title}</h2>
       <p>{props.desc}</p>
     </div>
