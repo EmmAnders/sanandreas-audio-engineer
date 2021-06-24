@@ -33,27 +33,34 @@ const Projects = () => {
   };
 
   useEffect(() => {
-    revealContent.current.forEach((el, index) => {
-      gsap.set(el, { y: 100, opacity: 0, ease: Power3.easeIn });
-      ScrollTrigger.batch(el, {
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            stagger: { each: 0.2, grid: [1, 3] },
-            overwrite: true,
-          }),
-        onLeave: (batch) =>
-          gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-        onEnterBack: (batch) =>
-          gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-        onLeaveBack: (batch) =>
-          gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
-        start: "30px bottom",
-        end: "+=5000px",
+    if (activeTab) {
+      revealContent.current.forEach((el, index) => {
+        gsap.set(el, { y: 100, opacity: 0, ease: "easeIn" });
+        ScrollTrigger.batch(el, {
+          onEnter: (batch) =>
+            gsap.to(batch, {
+              opacity: 1,
+              y: 0,
+              stagger: { each: 0.2, grid: [1, 3] },
+              overwrite: true,
+            }),
+          onLeave: (batch) =>
+            gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+          onEnterBack: (batch) =>
+            gsap.to(batch, {
+              opacity: 1,
+              y: 0,
+              stagger: 0.15,
+              overwrite: true,
+            }),
+          onLeaveBack: (batch) =>
+            gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+          start: "30px bottom",
+          end: "+=5000px",
+        });
+        ScrollTrigger.refresh();
       });
-      ScrollTrigger.refresh();
-    });
+    }
   }, [activeTab]);
 
   const handleClickToProjectId = (id) => {
