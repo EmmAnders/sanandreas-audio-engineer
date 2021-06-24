@@ -8,6 +8,7 @@ const Card = (props) => {
       onClick={props.onClick}
       className={`cardContainer ${props.className}`}
       key={props.key}
+      ref={props.revealRef}
     >
       <img ref={props.ref} className="img" src={sampleImage} alt="" />
       <h2>{props.title}</h2>
