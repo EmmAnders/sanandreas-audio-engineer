@@ -1,8 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import "../scss/components/Tabs.scss";
+import { Context } from "../contexts/Context";
 
 function Tabs({ children }) {
-  const [activeTab, setActiveTab] = useState(children[0].props.label);
+
+  const { activeTab, setActiveTab } = useContext(Context);
+  
   const handleActiveTab = useCallback((label) => setActiveTab(label), []);
 
   const tabs = children.map((child) => (
@@ -22,16 +25,14 @@ function Tabs({ children }) {
     </button>
   ));
 
-
   const tabContent = children.filter(
     (child) => child.props.label === activeTab
   );
 
-  
   return (
     <div>
       <div className="tabs__box">{tabs}</div>
-      <div>{tabContent}</div>
+      <div ref={children.ref}>{tabContent}</div>
     </div>
   );
 }
