@@ -1,16 +1,26 @@
 import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "../scss/pages/Project.scss";
 import sample from "../assets/sample.jpg";
 
-const Project = () => {
-  const ref = useRef(null);
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.core.globals("ScrollTrigger", ScrollTrigger);
+}
+
+
+const Project = () => {
+  const title = useRef(null);
+
+  useEffect(()=> {
+    
+  })
 
   return (
-    <div ref={ref} className="project">
+    <div ref={title} className="project">
       <section className="title">
         <h1 className="fadeIn">PROJECT NAME</h1>
       </section>

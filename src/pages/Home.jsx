@@ -28,7 +28,7 @@ const Home = () => {
     switch_text(element.current, "DJ", 8000);
     switch_text(element.current, "SOMETHING MORE?", 10000, function () {
       // run again after 6s
-      setTimeout(init, 10000);
+      setTimeout(init,3000);
     });
   }
 
