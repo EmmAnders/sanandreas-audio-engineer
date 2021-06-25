@@ -11,13 +11,10 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger);
 }
 
-
 const Project = () => {
   const title = useRef(null);
 
-  useEffect(()=> {
-    
-  })
+  useEffect(() => {}, []);
 
   return (
     <div ref={title} className="project">
