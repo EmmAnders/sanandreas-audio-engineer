@@ -5,6 +5,7 @@ import ContextProvider from "./contexts/Context";
 import "./App.scss";
 import "./scss/components/ThemeToggle.scss";
 
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
 import MusicBlog from "./pages/MusicBlog";
@@ -17,6 +18,7 @@ const App = () => {
     <div className="App ">
       <ContextProvider>
         <Router>
+          <ScrollToTop />
           <Navbar />
           <Route
             render={({ location }) => (

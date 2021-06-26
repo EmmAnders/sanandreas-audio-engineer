@@ -3,9 +3,10 @@
 
 .project {
   .title {
-    background: pink;
+    /*    background: pink; */
     width: 100%;
     margin: 0 auto;
+    height: 70vh;
     margin-top: 20vh;
     display: flex;
     align-items: center;
@@ -17,11 +18,46 @@
     }
   }
 
+  .section-0 {
+    height: 80vh;
+    /*  background: green; */
+    display: flex;
+    align-items: center;
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+      align-content: space-between;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    .img-1 {
+      /*     background: orange; */
+    }
+
+    .img-2 {
+      display: flex;
+      justify-content: flex-end;
+
+      img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
   .section-1 {
+    /*     background: green; */
     display: grid;
     grid-template-columns: 1fr 3fr;
     align-items: center;
-    margin: 5% 0%;
+    margin: 0%;
+    height: 100vh;
 
     img {
       clip-path: inset(0% 0% 0% 0%);
@@ -67,21 +103,35 @@
   }
 
   .section-2 {
-    margin: 5% 0%;
     display: flex;
     align-items: center;
+    margin: 0%;
+    height: 100vh;
 
     h3 {
       text-transform: uppercase;
     }
 
     p {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
 
   .section-3 {
+    height: 100vh;
+    /*   background: blue; */
+
+    .inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     iframe {
+      width: 70%;
+      height: 70%;
     }
   }
 }
