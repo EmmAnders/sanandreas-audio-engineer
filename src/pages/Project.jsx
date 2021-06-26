@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import "../scss/pages/Project.scss";
 import sample from "../assets/sample.jpg";
 
-import { gsap } from "gsap";
+import { gsap, timeline } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import LocomotiveScroll from "locomotive-scroll";
@@ -22,6 +22,12 @@ const Project = () => {
   const aboutHeading = useRef(null);
   const about = useRef(null);
   const video = useRef(null);
+
+  const imgWrapper1 = useRef(null);
+  const imgWrapper2 = useRef(null);
+
+  const imgBg1 = useRef(null);
+  const imgBg2 = useRef(null);
 
   useEffect(() => {
     let locoScroll = new LocomotiveScroll({
@@ -125,6 +131,26 @@ const Project = () => {
       },
     });
 
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: imgWrapper2.current,
+        scroller: container.current,
+        scrub: true,
+        pin: false,
+      },
+    });
+
+    gsap.from(imgBg2.current, {
+      yPercent: -10,
+      ease: "none",
+  
+    });
+    gsap.to(imgBg2.current, {
+      yPercent: 10,
+      ease: "none",
+
+    });
+
     return () => {
       if (locoScroll) {
         ScrollTrigger.removeEventListener("refresh", lsUpdate);
@@ -158,12 +184,12 @@ const Project = () => {
 
       <section className="section-0">
         <div className="container">
-          <div className="img-1">
-            <img src={sample} alt="" />
+          <div ref={imgWrapper1} className="wrapper-1">
+            <div ref={imgBg1} className="img"></div>
           </div>
 
-          <div className="img-2">
-            <img src={sample} alt="" />
+          <div ref={imgWrapper2} className="wrapper-2">
+            <div ref={imgBg2} className="img"></div>
           </div>
         </div>
       </section>
