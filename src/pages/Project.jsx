@@ -17,8 +17,8 @@ const Project = () => {
   useEffect(() => {}, []);
 
   return (
-    <div ref={title} className="project">
-      <section className="title">
+    <div  className="project">
+      <section ref={title} className="title">
         <h1 className="fadeIn">PROJECT NAME</h1>
       </section>
 

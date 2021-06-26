@@ -24,23 +24,22 @@ const Home = () => {
 
   function init() {
     switch_text(element.current, "AUDIO ENGINEER", 0);
-    switch_text(element.current, "FRONT-END DEVELOPER", 4000);
-    switch_text(element.current, "DJ", 8000);
-    switch_text(element.current, "SOMETHING MORE?", 10000, function () {
+    switch_text(element.current, "SOUND DESIGNER", 4000);
+    switch_text(element.current, "FRONT END DEVELOPER", 8000);
+    switch_text(element.current, "DJ", 10000, function () {
       // run again after 6s
-      setTimeout(init,3000);
+      setTimeout(init, 3000);
     });
   }
 
   useEffect(() => {
     init();
-  },[]);
+  }, []);
 
   return (
     <div className="home">
       <h1>
         Freelance <span ref={element}></span>
-        {/*       <span>Front-end Developer </span> */}
       </h1>
       <h1>Based in Copenhagen.</h1>
     </div>

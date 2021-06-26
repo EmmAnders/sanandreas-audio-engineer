@@ -3,14 +3,17 @@
 
 .project {
   .title {
+    background: pink;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+
     h1 {
       font-size: 7rem;
-      line-height: 24px;
-      margin: 30vh 0vh;
       font-family: $secondary-font;
       font-weight: 200;
-      text-align: center;
-      width: 100%;
     }
   }
 
