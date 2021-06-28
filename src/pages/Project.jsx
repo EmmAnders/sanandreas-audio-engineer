@@ -16,23 +16,20 @@ if (typeof window !== `undefined`) {
 
 const Project = () => {
   let container = useRef(null);
-  const title = useRef(null);
-  const summary = useRef(null);
-  const img1 = useRef(null);
-  const aboutHeading = useRef(null);
-  const about = useRef(null);
-  const video = useRef(null);
+  const revealContent = useRef(null);
+  revealContent.current = [];
 
-  const imgWrapper1 = useRef(null);
-  const imgWrapper2 = useRef(null);
-
-  const imgBg1 = useRef(null);
-  const imgBg2 = useRef(null);
+  const addToRefs = (el) => {
+    if (el && !revealContent.current.includes(el)) {
+      revealContent.current.push(el);
+    }
+  };
 
   useEffect(() => {
     let locoScroll = new LocomotiveScroll({
       el: container.current,
       smooth: true,
+      smoothMobile: true,
     });
 
     locoScroll.on("scroll", () => {
@@ -69,86 +66,22 @@ const Project = () => {
     ScrollTrigger.addEventListener("refresh", lsUpdate);
     ScrollTrigger.refresh();
 
-    gsap.from(title.current, {
-      autoAlpha: 0,
-      ease: "power2.easeIn",
-      delay: 0.5,
-      y: 100,
-    });
+    revealContent.current.forEach((el, index) => {
+      let exptl = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          end: "top 5%",
+          scrub: 3,
+          scroller: container.current,
+        },
+      });
 
-    gsap.from(summary.current, {
-      autoAlpha: 0,
-      ease: "power2.easeIn",
-      duration: 0.8,
-      x: -200,
-      scrollTrigger: {
-        trigger: summary.current,
-        scroller: container.current,
-      },
-    });
-
-    gsap.from(img1.current, {
-      autoAlpha: 0,
-      ease: "power2.easeIn",
-      delay: 2,
-      y: 100,
-      scrollTrigger: {
-        trigger: img1.current,
-        scroller: container.current,
-      },
-    });
-
-    gsap.from(aboutHeading.current, {
-      autoAlpha: 0,
-      ease: "power2.easeIn",
-      delay: 0.5,
-      y: 100,
-      scrollTrigger: {
-        trigger: aboutHeading.current,
-        scroller: container.current,
-      },
-    });
-
-    gsap.from(about.current, {
-      autoAlpha: 0,
-      ease: "power2.easeIn",
-      delay: 1,
-      y: 100,
-      scrollTrigger: {
-        trigger: about.current,
-        scroller: container.current,
-      },
-    });
-
-    gsap.from(video.current, {
-      autoAlpha: 0,
-      ease: "power2.easeIn",
-      delay: 1,
-      y: 100,
-      scrollTrigger: {
-        trigger: video.current,
-        scroller: container.current,
-      },
-    });
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: imgWrapper2.current,
-        scroller: container.current,
-        scrub: true,
-        pin: false,
-      },
-    });
-
-    gsap.from(imgBg2.current, {
-      yPercent: -10,
-      ease: "none",
-  
-    });
-    gsap.to(imgBg2.current, {
-      yPercent: 10,
-      ease: "none",
-
+      exptl.from(el, {
+        y: 100,
+        opacity: 0,
+        duration: 0.7,
+      });
     });
 
     return () => {
@@ -163,43 +96,41 @@ const Project = () => {
 
   return (
     <div data-scroll-container ref={container} className="project">
-      <section ref={title} className="title">
+      <section ref={addToRefs} className="title">
         <h1 className="fadeIn">PROJECT NAME</h1>
       </section>
 
-      <section className="section-1">
-        <div ref={summary} className="rowLayout">
-          <h2 className="fadeIn">summary</h2>
-          <p className="fadeIn">
+      <section ref={addToRefs} className="section-1">
+        <div className="rowLayout">
+          <h2>summary</h2>
+          <p>
             Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.
             Lorem Ipsum.
           </p>
         </div>
 
-        <div ref={img1} className="columnLayout">
-          <h2 className="fadeIn">2021</h2>
-          <img className="fadeIn img" src={sample} alt="" />
+        <div className="columnLayout">
+          <h2>2021</h2>
+          <img className="img" src={sample} alt="" />
         </div>
       </section>
 
-      <section className="section-0">
+      <section className="section-2">
         <div className="container">
-          <div ref={imgWrapper1} className="wrapper-1">
-            <div ref={imgBg1} className="img"></div>
+          <div className="wrapper-1">
+            <div ref={addToRefs} className="img"></div>
           </div>
 
-          <div ref={imgWrapper2} className="wrapper-2">
-            <div ref={imgBg2} className="img"></div>
+          <div className="wrapper-2">
+            <div ref={addToRefs} className="img"></div>
           </div>
         </div>
       </section>
 
-      <div className="section-2">
+      <div ref={addToRefs} className="section-3">
         <div className="inner">
-          <h3 ref={aboutHeading} className="fadeIn">
-            About
-          </h3>
-          <p ref={about} className="fadeIn">
+          <h3>About</h3>
+          <p>
             Massa id neque aliquam vestibulum. Nibh praesent tristique magna
             sit. Auctor eu augue ut lectus arcu bibendum at varius. Nam aliquam
             sem et tortor consequat id. Nunc mi ipsum faucibus vitae aliquet
@@ -224,11 +155,9 @@ const Project = () => {
         </div>
       </div>
 
-      <div className="section-3">
+      <div ref={addToRefs} className="section-4">
         <div className="inner">
           <iframe
-            ref={video}
-            className="fadeIn"
             src="https://www.youtube.com/embed/3UdytvyWobA"
             title="YouTube video player"
             frameborder="0"

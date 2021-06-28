@@ -3,74 +3,28 @@
 
 .project {
   .title {
-    /*    background: pink; */
+    background: pink;
     width: 100%;
-    margin: 0 auto;
     height: 70vh;
     margin-top: 20vh;
     display: flex;
     align-items: center;
 
     h1 {
-      font-size: 7rem;
+      font-size: $headlineXL;
       font-family: $secondary-font;
       font-weight: 200;
-    }
-  }
-
-  .section-0 {
-    display: flex;
-    align-items: center;
-
-    .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 1rem;
-      align-content: space-between;
-      width: 100%;
-
-      .wrapper-1 {
-        /*    background: red; */
-        position: relative;
-        overflow: hidden;
-        height: 60vh;
-        width: 100%;
-
-        .img {
-          height: 120vh;
-          width: 100%;
-          background-image: url("https://www.rezo-zero.com/projects/Cahn-wilson/CW_Poster.jpg.webp");
-        }
-      }
-
-      .wrapper-2 {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        position: relative;
-        overflow: hidden;
-        height: 30vh;
-        width: 100%;
-
-        .img {
-          height: 60vh;
-
-          width: 50%;
-          background-image: url("https://www.rezo-zero.com/projects/Cahn-wilson/CW_Poster.jpg.webp");
-          object-fit: fill;
-        }
-      }
     }
   }
 }
 
 .section-1 {
-  /*     background: green; */
+  background: green;
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
   margin: 0%;
-  height: 100vh;
+  /*   height: 70vh; */
 
   img {
     clip-path: inset(0% 0% 0% 0%);
@@ -82,9 +36,6 @@
     font-size: $paragraph;
     text-transform: uppercase;
     font-weight: bold;
-  }
-
-  p {
   }
 
   .columnLayout,
@@ -118,25 +69,71 @@
 .section-2 {
   display: flex;
   align-items: center;
+  /*   height: $sectionHeight; */
+  background: red;
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .wrapper-1 {
+      position: relative;
+      overflow: hidden;
+      height: 60vh;
+      width: 100%;
+
+      .img {
+        height: 120vh;
+        width: 100%;
+        background-image: url("https://www.rezo-zero.com/projects/Cahn-wilson/CW_Poster.jpg.webp");
+      }
+    }
+
+    .wrapper-2 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      height: 30vh;
+      width: 100%;
+
+      .img {
+        height: 60vh;
+        width: 50%;
+        background-image: url("https://www.rezo-zero.com/projects/Cahn-wilson/CW_Poster.jpg.webp");
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+.section-3 {
+  background: yellow;
+  display: flex;
+  align-items: center;
   margin: 0%;
-  height: 100vh;
+  /* height: $sectionHeight; */
 
   h3 {
     text-transform: uppercase;
   }
 
   p {
-    font-size: 2.5rem;
+    font-size: $paragraphXL;
   }
 }
 
-.section-3 {
+.section-4 {
+  /*   height: $sectionHeight; */
+  background: blue;
   height: 100vh;
-  /*   background: blue; */
 
   .inner {
     width: 100%;
     height: 100%;
+    background: pink;
     display: flex;
     justify-content: center;
     align-items: center;
