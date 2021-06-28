@@ -2,145 +2,217 @@
 @import "../Mixins.scss";
 
 .project {
-  .title {
-    background: pink;
-    width: 100%;
-    height: 70vh;
-    margin-top: 20vh;
-    display: flex;
-    align-items: center;
+  margin-bottom: 15vh;
+  margin-top: 15vh;
 
-    h1 {
-      font-size: $headlineXL;
-      font-family: $secondary-font;
-      font-weight: 200;
-    }
+  @include desktop {
+    margin-bottom: 5vh;
   }
-}
-
-.section-1 {
-  background: green;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  align-items: center;
-  margin: 0%;
-  /*   height: 70vh; */
-
-  img {
-    clip-path: inset(0% 0% 0% 0%);
-    width: 100%;
-    height: 100%;
-  }
-
-  h2 {
-    font-size: $paragraph;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .columnLayout,
-  .rowLayout {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .rowLayout {
-    grid-template-columns: repeat(2, auto);
-  }
-
-  .columnLayout {
-    grid-template-columns: 100px auto;
-    align-items: flex-end;
-
-    img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    h2 {
-      transform: translateX(100%) rotate(-90deg);
-      transform-origin: left bottom;
-      justify-self: end;
-      text-transform: uppercase;
-    }
-  }
-}
-
-.section-2 {
-  display: flex;
-  align-items: center;
-  /*   height: $sectionHeight; */
-  background: red;
-
-  .container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    .wrapper-1 {
-      position: relative;
-      overflow: hidden;
-      height: 60vh;
-      width: 100%;
-
-      .img {
-        height: 120vh;
-        width: 100%;
-        background-image: url("https://www.rezo-zero.com/projects/Cahn-wilson/CW_Poster.jpg.webp");
-      }
-    }
-
-    .wrapper-2 {
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      position: relative;
-      overflow: hidden;
-      height: 30vh;
-      width: 100%;
-
-      .img {
-        height: 60vh;
-        width: 50%;
-        background-image: url("https://www.rezo-zero.com/projects/Cahn-wilson/CW_Poster.jpg.webp");
-        object-fit: fill;
-      }
-    }
-  }
-}
-
-.section-3 {
-  background: yellow;
-  display: flex;
-  align-items: center;
-  margin: 0%;
-  /* height: $sectionHeight; */
-
+  h2,
   h3 {
     text-transform: uppercase;
   }
 
-  p {
-    font-size: $paragraphXL;
-  }
-}
-
-.section-4 {
-  /*   height: $sectionHeight; */
-  background: blue;
-  height: 100vh;
-
-  .inner {
+  .title {
     width: 100%;
-    height: 100%;
-    background: pink;
     display: flex;
+    align-items: center;
+    height: 75vh;
+
+    h1 {
+      font-size: $headline;
+      font-family: $secondary-font;
+      font-weight: 200;
+
+      @include tablet {
+        font-size: $headlineXL;
+      }
+    }
+  }
+
+  .section-1,
+  .section-2,
+  .section-3 {
+    padding-bottom: $section-mb-mobile;
+
+    @include tablet {
+      padding-bottom: $section-mb-tablet;
+    }
+    @include desktop {
+      padding-bottom: $section-mb-desktop;
+    }
+  }
+
+  .section-1 {
+    display: flex;
+    flex-direction: column-reverse;
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      align-items: center;
+    }
+
+    img {
+      clip-path: inset(0% 0% 0% 0%);
+      width: 100%;
+      height: 100%;
+    }
+
+    h2 {
+      font-size: $paragraph;
+      font-weight: bold;
+    }
+
+    .columnLayout,
+    .rowLayout {
+      display: grid;
+    }
+
+    .rowLayout {
+      grid-template-columns: repeat(2, auto);
+
+      h2 {
+        margin-right: 0.5rem;
+      }
+
+      p {
+        width: 100%;
+      }
+    }
+
+    .columnLayout {
+      display: grid;
+      grid-template-columns: 15px auto;
+      align-items: flex-end;
+      padding-bottom: $section-mb-mobile;
+
+      @include tablet {
+        grid-template-columns: 100px auto;
+      }
+      h2 {
+        transform: translateX(100%) rotate(-90deg);
+        transform-origin: left bottom;
+        justify-self: end;
+        text-transform: uppercase;
+      }
+
+      .img-container {
+        height: 40vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        @include tablet {
+          height: 40vh;
+        }
+
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .section-2 {
+    display: flex;
+    align-items: center;
+
+    .container {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+
+      .img-container-1,
+      .img-container-2 {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .img-container-1 {
+        margin-right: 2px;
+        @include tablet {
+          height: 45vh;
+        }
+
+        @include desktop {
+          height: 60vh;
+        }
+
+        img {
+          @include tablet {
+            height: 90vh;
+          }
+
+          @include desktop {
+            height: 120vh;
+          }
+        }
+      }
+
+      .img-container-2 {
+        @include tablet {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          height: 30vh;
+        }
+
+        img {
+          @include tablet {
+            height: 40vh;
+            width: 80%;
+          }
+
+          @include desktop {
+            height: 60vh;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .section-3 {
+    p {
+      font-size: $paragraphL;
+    }
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: $paragraphXL;
+      }
+    }
+  }
+
+  .section-4 {
+    /*     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    padding-bottom: $section-mb-tablet; */
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
 
-  iframe {
-    width: 70%;
-    height: 70%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include tablet {
+        height: 500px;
+      }
+    }
   }
 }

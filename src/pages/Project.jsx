@@ -70,9 +70,9 @@ const Project = () => {
       let exptl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "top 85%",
-          end: "top 5%",
-          scrub: 3,
+          /*        start: "top bottom",  */
+          end: () => `+=${el.offsetHeight}`,
+          scrub: 2,
           scroller: container.current,
         },
       });
@@ -80,7 +80,7 @@ const Project = () => {
       exptl.from(el, {
         y: 100,
         opacity: 0,
-        duration: 0.7,
+        duration: 1,
       });
     });
 
@@ -96,12 +96,12 @@ const Project = () => {
 
   return (
     <div data-scroll-container ref={container} className="project">
-      <section ref={addToRefs} className="title">
-        <h1 className="fadeIn">PROJECT NAME</h1>
+      <section className="title">
+        <h1 ref={addToRefs}>PROJECT NAME</h1>
       </section>
 
-      <section ref={addToRefs} className="section-1">
-        <div className="rowLayout">
+      <section className="section-1">
+        <div ref={addToRefs} className="rowLayout">
           <h2>summary</h2>
           <p>
             Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.
@@ -111,18 +111,20 @@ const Project = () => {
 
         <div className="columnLayout">
           <h2>2021</h2>
-          <img className="img" src={sample} alt="" />
+          <div className="img-container">
+            <img ref={addToRefs} src={sample} alt="" />
+          </div>
         </div>
       </section>
 
       <section className="section-2">
         <div className="container">
-          <div className="wrapper-1">
-            <div ref={addToRefs} className="img"></div>
+          <div className="img-container-1">
+            <img ref={addToRefs} src={sample} alt="" />
           </div>
 
-          <div className="wrapper-2">
-            <div ref={addToRefs} className="img"></div>
+          <div className="img-container-2">
+            <img ref={addToRefs} src={sample} alt="" />
           </div>
         </div>
       </section>
@@ -155,14 +157,17 @@ const Project = () => {
         </div>
       </div>
 
-      <div ref={addToRefs} className="section-4">
+      <div className="section-4">
         <div className="inner">
           <iframe
+            ref={addToRefs}
             src="https://www.youtube.com/embed/3UdytvyWobA"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            height="315"
+            width="560"
           ></iframe>
         </div>
       </div>
