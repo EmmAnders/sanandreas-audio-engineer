@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-
 const Navlinks = (props) => {
   const links = [
     {

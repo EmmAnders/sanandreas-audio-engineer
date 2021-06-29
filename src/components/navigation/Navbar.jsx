@@ -1,23 +1,27 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import NavLinks from "./Navlinks";
 import "../../scss/Variables.scss";
+import { gsap } from "gsap";
 
 import { Squeeze as Hamburger } from "hamburger-react";
 
 import "../../scss/navigation/Navbar.scss";
 
 const Navbar = () => {
+  const header = useRef();
   const [isOpen, setOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 768;
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
+
+    gsap.from(header.current, { duration: 1, y:'50', opacity: 0, delay: 0.3 });
   }, []);
 
   return (
-    <header>
+    <header ref={header}>
       <nav className="nav">
         <div className="logo">
           <NavLink to="/">SANANDREAS</NavLink>

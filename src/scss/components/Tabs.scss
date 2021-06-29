@@ -9,21 +9,31 @@
   content: "";
   margin: -4px 20px 0;
   display: block;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid $light-grey;
   margin-bottom: 3rem;
 }
 
 .tabs__tab {
   text-decoration: none;
   display: inline-block;
+
   padding: 1rem;
   border: none;
   outline: none;
-  font-size: $paragraph;
+  font-size: $small;
   background: transparent;
   color: $grey;
   margin: 4px;
+
   cursor: pointer;
+  @include tablet {
+    font-size: $paragraph;
+  }
+
+  @include desktop{
+    font-size: $paragraph;
+  }
+
 }
 
 /* .tabs__tab:hover {
@@ -38,6 +48,6 @@
   content: "";
   display: block;
   padding-top: 16px;
-  margin-bottom: -16px;
-  border-bottom: 2px solid $black-text;
+  margin-bottom: -17px;
+  border-bottom: 1px solid $black-text;
 }

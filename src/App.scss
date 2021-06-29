@@ -3,8 +3,4 @@
 
 .App {
   margin: $page-margin;
-
-  @include desktop-xl {
-    margin: 10%;
-  }
 }

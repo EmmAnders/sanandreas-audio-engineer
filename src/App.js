@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useEffect, useRef, useContext } from "react";
 
 import ContextProvider from "./contexts/Context";
 
@@ -25,7 +26,7 @@ const App = () => {
               <Switch location={location} key={location.pathname}>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/projects" component={Projects} />
-                <Route exact path="/projects/:id" component={Project} />
+                <Route exact path="/projects/:title" component={Project} />
                 <Route exact path="/music-blog" component={MusicBlog} />
               </Switch>
             )}
