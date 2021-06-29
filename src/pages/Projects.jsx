@@ -78,9 +78,9 @@ const Projects = () => {
   }, []);
 
   const handleClickToProjectId = (title) => {
-   let title1 =  title.replace(/\s+/g, "-").toLowerCase();
+    let title1 = title.replace(/\s+/g, "-").toLowerCase();
     history.push(`/projects/${title1}`);
-    console.log(title1)
+    console.log(title1);
   };
 
   return (
@@ -141,12 +141,20 @@ const Projects = () => {
             {MusicProductionData.map((data, i) => {
               return (
                 <div ref={addToRefs}>
-                  <Card
+                  <iframe
+                    scrolling="no"
+                    frameborder="no"
+                    src={data.bandcampUrl}
+                    height="500px"
+                    width="100%"
+                  ></iframe>
+
+                  {/*    <Card
                     onClick={() => handleClickToProjectId(data.title)}
                     className={"item"}
                     key={data.id}
                     title={data.title.toUpperCase()}
-                  ></Card>
+                  ></Card> */}
                 </div>
               );
             })}

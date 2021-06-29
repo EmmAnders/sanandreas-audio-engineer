@@ -67,35 +67,38 @@ const Project = (props) => {
                   <h1 ref={addToRefs}>{p.title}</h1>
                 </section>
 
-                <section className="section-1">
-                  <div ref={addToRefs} className="rowLayout">
-                    {p.summary && (
-                      <>
-                        <h2>Overview</h2>
-                        <p>{p.summary}</p>
-                      </>
-                    )}
-                  </div>
+                {p.image && (
+                  <>
+                    <section className="section-1">
+                      <div ref={addToRefs} className="rowLayout">
+                        {p.summary && (
+                          <>
+                            <h2>Overview</h2>
+                            <p>{p.summary}</p>
+                          </>
+                        )}
+                      </div>
 
-                  <div className="columnLayout">
-                    <h2>{p.year}</h2>
-                    <div className="img-container">
-                      <img ref={addToRefs} src={sample} alt="" />
-                    </div>
-                  </div>
-                </section>
+                      <div className="columnLayout">
+                        <h2>{p.year}</h2>
+                        <div className="img-container">
+                          <img ref={addToRefs} src={sample} alt="" />
+                        </div>
+                      </div>
+                    </section>
+                    <section className="section-2">
+                      <div className="container">
+                        <div className="img-container-1">
+                          <img ref={addToRefs} src={sample} alt="" />
+                        </div>
 
-                <section className="section-2">
-                  <div className="container">
-                    <div className="img-container-1">
-                      <img ref={addToRefs} src={sample} alt="" />
-                    </div>
-
-                    <div className="img-container-2">
-                      <img ref={addToRefs} src={sample} alt="" />
-                    </div>
-                  </div>
-                </section>
+                        <div className="img-container-2">
+                          <img ref={addToRefs} src={sample} alt="" />
+                        </div>
+                      </div>
+                    </section>
+                  </>
+                )}
 
                 {p.body && (
                   <div ref={addToRefs} className="section-3">
@@ -110,7 +113,7 @@ const Project = (props) => {
                   <div className="section-4">
                     <div className="inner">
                       <iframe
-                      className="video-player"
+                        className="video-player"
                         ref={addToRefs}
                         src={p.video}
                         title="YouTube video player"
@@ -125,24 +128,18 @@ const Project = (props) => {
                 )}
 
                 {p.bandcampUrl && (
-                  <div className="section-4">
-                    <div className="inner">
-                      <iframe
-                      className="music-player"
-                        ref={addToRefs}
-                        src={p.bandcampUrl}
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        width="560"
-                      ></iframe>
-                    </div>
+                  <div className="section-5">
+                    <iframe
+                    className="music-player"
+                      scrolling="no"
+                      frameborder="no"
+                      src={p.bandcampUrl}
+                    ></iframe>
                   </div>
                 )}
 
                 {p.github && (
-                  <div className="section-5">
+                  <div className="section-6">
                     <img src={arrow} alt="corner-up-right-arrow" />
 
                     <a href={p.github}>VIEW PROJECT ON GITHUB</a>
