@@ -197,23 +197,47 @@
   }
 
   .section-4 {
-    /*     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: $section-mb-tablet; */
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 35px;
     height: 0;
     overflow: hidden;
 
-    iframe {
+    .video-player {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-    
+    }
+
+    .music-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .section-5 {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 1.3rem;
+      margin-right: 0.8rem;
+      @include desktop {
+        height: 3rem;
+      }
+    }
+
+    a {
+      font-size: $paragraphL;
+      color: $grey;
+      @include desktop {
+        font-size: $paragraphXL;
+      }
     }
   }
 }

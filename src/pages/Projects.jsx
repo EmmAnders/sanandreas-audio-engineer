@@ -78,7 +78,9 @@ const Projects = () => {
   }, []);
 
   const handleClickToProjectId = (title) => {
-    history.push(`/projects/${title}`);
+   let title1 =  title.replace(/\s+/g, "-").toLowerCase();
+    history.push(`/projects/${title1}`);
+    console.log(title1)
   };
 
   return (
@@ -105,9 +107,9 @@ const Projects = () => {
               return (
                 <div ref={addToRefs}>
                   <Card
-                    onClick={() => handleClickToProjectId(data.id)}
+                    onClick={() => handleClickToProjectId(data.title)}
                     className="item"
-                    key={data.id}
+                    key={data.title}
                     title={data.title.toUpperCase()}
                   ></Card>
                 </div>
@@ -122,9 +124,9 @@ const Projects = () => {
               return (
                 <div ref={addToRefs}>
                   <Card
-                    onClick={() => handleClickToProjectId(data.id)}
+                    onClick={() => handleClickToProjectId(data.title)}
                     className={"item"}
-                    key={data.id}
+                    key={data.title}
                     title={data.title.toUpperCase()}
                     desc={data.descShort}
                   ></Card>
@@ -140,7 +142,7 @@ const Projects = () => {
               return (
                 <div ref={addToRefs}>
                   <Card
-                    onClick={() => handleClickToProjectId(data.id)}
+                    onClick={() => handleClickToProjectId(data.title)}
                     className={"item"}
                     key={data.id}
                     title={data.title.toUpperCase()}

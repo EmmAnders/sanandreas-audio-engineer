@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { MusicProductionData } from "../data/MusicProductionData";
 import { Context } from "../contexts/Context";
 
 import "../scss/pages/Project.scss";
 import sample from "../assets/sample.jpg";
+import arrow from "../assets/icons/corner-up-right.svg";
 
 import { gsap, timeline } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +20,6 @@ if (typeof window !== `undefined`) {
 const Project = (props) => {
   const { projects } = useContext(Context);
 
-  let container = useRef(null);
   const revealContent = useRef(null);
   revealContent.current = [];
 
@@ -32,33 +31,36 @@ const Project = (props) => {
 
   let { title } = useParams();
 
-  console.log(title);
-
   useEffect(() => {
     revealContent.current.forEach((el, index) => {
       let exptl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          /*        start: "top bottom",  */
           end: () => `+=${el.offsetHeight}`,
           scrub: 3,
-          scroller: container.current,
         },
       });
 
       exptl.from(el, {
         y: 100,
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1,
       });
     });
+
+    /*     gsap.from(container.current, {
+      duration: 1,
+      y: "50",
+      autoAlpha: 0,
+      delay: 0.6,
+    }); */
   }, []);
 
   return (
     <div className="project">
       {projects &&
         projects.map((p) => {
-          if (p.title == title) {
+          if (p.title.replace(/\s+/g, "-").toLowerCase() == title) {
             return (
               <div key={p.id}>
                 <section className="title">
@@ -67,8 +69,12 @@ const Project = (props) => {
 
                 <section className="section-1">
                   <div ref={addToRefs} className="rowLayout">
-                    <h2>Summary</h2>
-                    <p>{p.summary}</p>
+                    {p.summary && (
+                      <>
+                        <h2>Overview</h2>
+                        <p>{p.summary}</p>
+                      </>
+                    )}
                   </div>
 
                   <div className="columnLayout">
@@ -104,6 +110,7 @@ const Project = (props) => {
                   <div className="section-4">
                     <div className="inner">
                       <iframe
+                      className="video-player"
                         ref={addToRefs}
                         src={p.video}
                         title="YouTube video player"
@@ -117,13 +124,38 @@ const Project = (props) => {
                   </div>
                 )}
 
-                {p.github && (
-                  <div className="section-5">
-                    <p>
-                      View Project on <a href={p.github}>Github</a>
-                    </p>
+                {p.bandcampUrl && (
+                  <div className="section-4">
+                    <div className="inner">
+                      <iframe
+                      className="music-player"
+                        ref={addToRefs}
+                        src={p.bandcampUrl}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        width="560"
+                      ></iframe>
+                    </div>
                   </div>
                 )}
+
+                {p.github && (
+                  <div className="section-5">
+                    <img src={arrow} alt="corner-up-right-arrow" />
+
+                    <a href={p.github}>VIEW PROJECT ON GITHUB</a>
+                  </div>
+                )}
+
+                {/*       {p.bandcampUrl && (
+                  <div className="section-5">
+                    <img src={arrow} alt="corner-up-right-arrow" />
+                    <a href={p.bandcampUrl}>LISTEN</a>
+                    <iframe src={p.bandcampUrl} frameborder="0"></iframe>
+                  </div>
+                )} */}
               </div>
             );
           }

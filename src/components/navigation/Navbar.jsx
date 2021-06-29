@@ -17,12 +17,12 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
 
-    gsap.from(header.current, { duration: 1, y:'50', opacity: 0, delay: 0.3 });
+    gsap.from(header.current, { duration: 1, y: "50", opacity: 0, delay: 0.3 });
   }, []);
 
   return (
-    <header ref={header}>
-      <nav className="nav">
+    <header>
+      <nav ref={header} className="nav">
         <div className="logo">
           <NavLink to="/">SANANDREAS</NavLink>
         </div>
