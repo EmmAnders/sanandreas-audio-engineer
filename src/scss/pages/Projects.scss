@@ -2,7 +2,6 @@
 @import "../Mixins.scss";
 
 .projects {
-  margin-top: 20vh;
   .wrapper {
     display: grid;
     grid-template-columns: 100%;
@@ -14,6 +13,13 @@
 
     .item {
       height: 100%;
+    }
+
+    .iframe-wrapper {
+      iframe {
+        width: 633px;
+        height: 458px;
+      }
     }
   }
 }

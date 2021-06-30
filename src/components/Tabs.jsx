@@ -11,11 +11,11 @@ import { Context } from "../contexts/Context";
 
 function Tabs({ children }) {
   const { activeTab, setActiveTab } = useContext(Context);
-
   const handleActiveTab = useCallback((label) => setActiveTab(label), []);
 
   const tabs = children.map((child) => (
     <button
+      ref={child.props.ref}
       onClick={(e) => {
         e.preventDefault();
         handleActiveTab(child.props.label);
@@ -38,7 +38,7 @@ function Tabs({ children }) {
   return (
     <div>
       <div className="tabs__box">{tabs}</div>
-      <div ref={children.ref}>{tabContent}</div>
+      <div className={children.className}>{tabContent}</div>
     </div>
   );
 }

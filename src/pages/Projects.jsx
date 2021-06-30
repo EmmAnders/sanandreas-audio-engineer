@@ -11,7 +11,7 @@ import Card from "../components/Card";
 import sampleImage from "../assets/sample.jpg";
 import "../scss/pages/Projects.scss";
 
-import { gsap, Power3 } from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== `undefined`) {
@@ -24,7 +24,7 @@ const Projects = () => {
   const { activeTab } = useContext(Context);
 
   const revealContent = useRef(null);
-  const container = useRef(null);
+  const tabs = useRef(null);
 
   revealContent.current = [];
 
@@ -43,7 +43,7 @@ const Projects = () => {
             gsap.to(batch, {
               opacity: 1,
               y: 0,
-              delay: 0.4,
+              delay: 0.8,
               stagger: { each: 0.2, grid: [1, 3] },
               overwrite: true,
             }),
@@ -67,24 +67,22 @@ const Projects = () => {
   }, [activeTab]);
 
   useEffect(() => {
-    if (container.current) {
-      gsap.from(container.current, {
-        duration: 1,
-        y: "50",
-        opacity: 0,
-        delay: 0.6,
-      });
-    }
-  }, []);
+    gsap.from(tabs.current, 0.8, {
+      delay: 0.5,
+      y: 100,
+      autoAlpha: 0,
+      duration: 1,
+    });
+  });
 
   const handleClickToProjectId = (title) => {
     let title1 = title.replace(/\s+/g, "-").toLowerCase();
-    history.push(`/projects/${title1}`);
+    history.push(`/work/${title1}`);
     console.log(title1);
   };
 
   return (
-    <main ref={container} className="projects">
+    <div className="projects">
       <Tabs>
         <Tab label={"All"} tabName={"ALL"}>
           <div className="wrapper">
@@ -138,30 +136,21 @@ const Projects = () => {
 
         <Tab label={"Music Production"} tabName={"MUSIC PRODUCTION"}>
           <div className="wrapper">
-            {MusicProductionData.map((data, i) => {
+            {MusicProductionData.map((data) => {
               return (
-                <div ref={addToRefs}>
+                <div className="iframe-wrapper" ref={addToRefs}>
                   <iframe
                     scrolling="no"
                     frameborder="no"
                     src={data.bandcampUrl}
-                    height="500px"
-                    width="100%"
                   ></iframe>
-
-                  {/*    <Card
-                    onClick={() => handleClickToProjectId(data.title)}
-                    className={"item"}
-                    key={data.id}
-                    title={data.title.toUpperCase()}
-                  ></Card> */}
                 </div>
               );
             })}
           </div>
         </Tab>
       </Tabs>
-    </main>
+    </div>
   );
 };
 

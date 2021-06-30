@@ -1,5 +1,8 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useEffect, useRef, useContext } from "react";
+
+import { CSSTransition } from "react-transition-group";
+import { Power3, gsap } from "gsap";
 
 import ContextProvider from "./contexts/Context";
 
@@ -9,33 +12,62 @@ import "./scss/components/ThemeToggle.scss";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
-import MusicBlog from "./pages/MusicBlog";
-import Projects from "./pages/Projects";
+import Work from "./pages/Projects";
 import Project from "./pages/Project";
+import MusicBlog from "./pages/MusicBlog";
 import Footer from "./components/Footer";
 
 const App = () => {
+  const routes = [
+    { path: "/", name: "Home", Component: Home },
+    { path: "/work", name: "Work", Component: Work },
+    { path: "/work/:title", name: "Project", Component: Project },
+    { path: "/music-blog", name: "Music Blog", Component: MusicBlog },
+  ];
+
   return (
-    <div className="App ">
+    <>
       <ContextProvider>
-        <Router>
-          <ScrollToTop />
-          <Navbar />
-          <Route
-            render={({ location }) => (
-              <Switch location={location} key={location.pathname}>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/projects" component={Projects} />
-                <Route exact path="/projects/:title" component={Project} />
-                <Route exact path="/music-blog" component={MusicBlog} />
-              </Switch>
-            )}
-          />
-          <Footer />
-        </Router>
+        <Navbar />
+        <main className="container">
+          {routes.map(({ path, Component }) => (
+            <Route key={path} path={path} exact>
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={1200}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Component />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+          ))}
+        </main>
       </ContextProvider>
-    </div>
+    </>
   );
 };
+{
+  {
+    /*   <ScrollToTop />
+    
+
+        <Footer /> */
+  }
+  /*  <Route
+          render={({ location }) => (
+            <Switch location={location} key={location.pathname}>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/work" component={Work} />
+              <Route exact path="/work/:title" component={Project} />
+              <Route exact path="/music-blog" component={MusicBlog} />
+            </Switch>
+          )}
+        /> */
+}
 
 export default App;
