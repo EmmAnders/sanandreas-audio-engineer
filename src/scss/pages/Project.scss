@@ -2,26 +2,55 @@
 @import "../Mixins.scss";
 
 .project {
+  margin-bottom: 15vh;
+  margin-top: 15vh;
+
+  @include desktop {
+    margin-bottom: 5vh;
+  }
+  h2,
+  h3 {
+    text-transform: uppercase;
+  }
+
   .title {
-    background: pink;
     width: 100%;
-    margin: 0 auto;
-    margin-top: 20vh;
     display: flex;
     align-items: center;
+    height: 70vh;
 
     h1 {
-      font-size: 7rem;
+      font-size: $headline;
       font-family: $secondary-font;
       font-weight: 200;
+
+      @include tablet {
+        font-size: $headlineXL;
+      }
+    }
+  }
+
+  .section-1,
+  .section-2,
+  .section-3 {
+    padding-bottom: $section-mb-mobile;
+
+    @include tablet {
+      padding-bottom: $section-mb-tablet;
+    }
+    @include desktop {
+      padding-bottom: $section-mb-desktop;
     }
   }
 
   .section-1 {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-    margin: 5% 0%;
+    display: flex;
+    flex-direction: column-reverse;
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      align-items: center;
+    }
 
     img {
       clip-path: inset(0% 0% 0% 0%);
@@ -31,57 +60,190 @@
 
     h2 {
       font-size: $paragraph;
-      text-transform: uppercase;
       font-weight: bold;
-    }
-
-    p {
     }
 
     .columnLayout,
     .rowLayout {
       display: grid;
-      gap: 0.8rem;
     }
 
     .rowLayout {
       grid-template-columns: repeat(2, auto);
+
+      h2 {
+        margin-right: 0.5rem;
+      }
+
+      p {
+        width: 100%;
+      }
     }
 
     .columnLayout {
-      grid-template-columns: 100px auto;
+      display: grid;
+      grid-template-columns: 15px auto;
       align-items: flex-end;
+      padding-bottom: $section-mb-mobile;
 
-      img {
-        height: 100%;
-        object-fit: cover;
+      @include tablet {
+        grid-template-columns: 100px auto;
       }
-
       h2 {
         transform: translateX(100%) rotate(-90deg);
         transform-origin: left bottom;
         justify-self: end;
         text-transform: uppercase;
       }
+
+      .img-container {
+        height: 40vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        @include tablet {
+          height: 40vh;
+        }
+        @include desktop {
+          height: 70vh;
+        }
+
+        img {
+          object-fit: cover;
+        }
+      }
     }
   }
 
   .section-2 {
-    margin: 5% 0%;
     display: flex;
     align-items: center;
 
-    h3 {
-      text-transform: uppercase;
-    }
+    .container {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
 
-    p {
-      font-size: 2rem;
+      .img-container-1,
+      .img-container-2 {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .img-container-1 {
+        margin-right: 2px;
+        @include tablet {
+          height: 45vh;
+        }
+
+        @include desktop {
+          height: 60vh;
+        }
+
+        img {
+          @include tablet {
+            height: 90vh;
+          }
+
+          @include desktop {
+            height: 120vh;
+          }
+        }
+      }
+
+      .img-container-2 {
+        @include tablet {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          height: 30vh;
+        }
+
+        img {
+          @include tablet {
+            height: 40vh;
+            width: 80%;
+          }
+
+          @include desktop {
+            height: 60vh;
+            width: 50%;
+          }
+        }
+      }
     }
   }
 
   .section-3 {
-    iframe {
+    p {
+      font-size: $paragraphL;
+    }
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: $paragraphXL;
+      }
+    }
+  }
+
+  .section-4 {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+
+    .video-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .section-5 {
+    position: relative;
+    padding-bottom: 11vh;
+    padding-top: 10px;
+    height: 0;
+    overflow: hidden;
+
+    .music-player {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .section-6 {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 1.3rem;
+      margin-right: 0.8rem;
+      @include desktop {
+        height: 3rem;
+      }
+    }
+
+    a {
+      font-size: $paragraphL;
+      color: $grey;
+      @include desktop {
+        font-size: $paragraphXL;
+      }
     }
   }
 }

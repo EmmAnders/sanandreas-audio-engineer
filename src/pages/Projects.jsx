@@ -24,6 +24,8 @@ const Projects = () => {
   const { activeTab } = useContext(Context);
 
   const revealContent = useRef(null);
+  const container = useRef(null);
+
   revealContent.current = [];
 
   const addToRefs = (el) => {
@@ -35,12 +37,13 @@ const Projects = () => {
   useEffect(() => {
     if (activeTab) {
       revealContent.current.forEach((el, index) => {
-        gsap.set(el, { y: 100, opacity: 0, ease: "easeIn" });
+        gsap.set(el, { y: 100, opacity: 0 });
         ScrollTrigger.batch(el, {
           onEnter: (batch) =>
             gsap.to(batch, {
               opacity: 1,
               y: 0,
+              delay: 0.4,
               stagger: { each: 0.2, grid: [1, 3] },
               overwrite: true,
             }),
@@ -63,13 +66,25 @@ const Projects = () => {
     }
   }, [activeTab]);
 
-  const handleClickToProjectId = (id) => {
-    history.push(`/projects/${id}`);
-    window.scrollTo(0, 0);
+  useEffect(() => {
+    if (container.current) {
+      gsap.from(container.current, {
+        duration: 1,
+        y: "50",
+        opacity: 0,
+        delay: 0.6,
+      });
+    }
+  }, []);
+
+  const handleClickToProjectId = (title) => {
+    let title1 = title.replace(/\s+/g, "-").toLowerCase();
+    history.push(`/projects/${title1}`);
+    console.log(title1);
   };
 
   return (
-    <main className="projects">
+    <main ref={container} className="projects">
       <Tabs>
         <Tab label={"All"} tabName={"ALL"}>
           <div className="wrapper">
@@ -78,8 +93,8 @@ const Projects = () => {
                 <div ref={addToRefs}>
                   <Card
                     src={sampleImage}
-                    onClick={() => handleClickToProjectId(data.id)}
-                    key={data.id}
+                    onClick={() => handleClickToProjectId(data.title)}
+                    key={data.title}
                     className="item"
                     title={data.title.toUpperCase()}
                     desc={data.descShort}
@@ -92,9 +107,9 @@ const Projects = () => {
               return (
                 <div ref={addToRefs}>
                   <Card
-                    onClick={() => handleClickToProjectId(data.id)}
+                    onClick={() => handleClickToProjectId(data.title)}
                     className="item"
-                    key={data.id}
+                    key={data.title}
                     title={data.title.toUpperCase()}
                   ></Card>
                 </div>
@@ -109,9 +124,9 @@ const Projects = () => {
               return (
                 <div ref={addToRefs}>
                   <Card
-                    onClick={() => handleClickToProjectId(data.id)}
+                    onClick={() => handleClickToProjectId(data.title)}
                     className={"item"}
-                    key={data.id}
+                    key={data.title}
                     title={data.title.toUpperCase()}
                     desc={data.descShort}
                   ></Card>
@@ -126,12 +141,20 @@ const Projects = () => {
             {MusicProductionData.map((data, i) => {
               return (
                 <div ref={addToRefs}>
-                  <Card
-                    onClick={() => handleClickToProjectId(data.id)}
+                  <iframe
+                    scrolling="no"
+                    frameborder="no"
+                    src={data.bandcampUrl}
+                    height="500px"
+                    width="100%"
+                  ></iframe>
+
+                  {/*    <Card
+                    onClick={() => handleClickToProjectId(data.title)}
                     className={"item"}
                     key={data.id}
                     title={data.title.toUpperCase()}
-                  ></Card>
+                  ></Card> */}
                 </div>
               );
             })}

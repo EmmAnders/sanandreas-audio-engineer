@@ -8,6 +8,7 @@ const Home = () => {
   gsap.registerPlugin(TextPlugin);
 
   let element = useRef();
+  let container = useRef();
 
   function switch_text(el, txt, delay, callback) {
     setTimeout(function () {
@@ -33,11 +34,19 @@ const Home = () => {
   }
 
   useEffect(() => {
-    init();
+    if (container.current) {
+      gsap.from(container.current, {
+        duration: 1,
+        y: "50",
+        opacity: 0,
+        delay: 0.6,
+      });
+      init();
+    }
   }, []);
 
   return (
-    <div className="home">
+    <div ref={container} className="home">
       <h1>
         Freelance <span ref={element}></span>
       </h1>

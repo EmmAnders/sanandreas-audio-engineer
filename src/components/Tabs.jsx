@@ -1,11 +1,17 @@
-import React, { useState, useCallback, useEffect, useContext } from "react";
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  useContext,
+} from "react";
+
 import "../scss/components/Tabs.scss";
 import { Context } from "../contexts/Context";
 
 function Tabs({ children }) {
-
   const { activeTab, setActiveTab } = useContext(Context);
-  
+
   const handleActiveTab = useCallback((label) => setActiveTab(label), []);
 
   const tabs = children.map((child) => (

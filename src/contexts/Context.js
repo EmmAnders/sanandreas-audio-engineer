@@ -1,13 +1,22 @@
 import { createContext, useEffect, useState } from "react";
+import { MusicProductionData } from "../data/MusicProductionData";
+import { TechProjectsData } from "../data/TechProjectsData.js";
 
 export const Context = createContext();
 
 const ContextProvider = (props) => {
+  const [projects, setProjects] = useState();
+
+  useEffect(() => {
+    setProjects([...TechProjectsData, ...MusicProductionData]);
+  }, []);
+
   const [activeTab, setActiveTab] = useState("All");
 
   const values = {
     activeTab,
     setActiveTab,
+    projects,
   };
 
   return <Context.Provider value={values}>{props.children}</Context.Provider>;

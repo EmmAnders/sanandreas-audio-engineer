@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useEffect, useRef, useContext } from "react";
 
 import ContextProvider from "./contexts/Context";
 
 import "./App.scss";
 import "./scss/components/ThemeToggle.scss";
 
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
 import MusicBlog from "./pages/MusicBlog";
@@ -17,13 +19,14 @@ const App = () => {
     <div className="App ">
       <ContextProvider>
         <Router>
+          <ScrollToTop />
           <Navbar />
           <Route
             render={({ location }) => (
               <Switch location={location} key={location.pathname}>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/projects" component={Projects} />
-                <Route exact path="/projects/:id" component={Project} />
+                <Route exact path="/projects/:title" component={Project} />
                 <Route exact path="/music-blog" component={MusicBlog} />
               </Switch>
             )}
