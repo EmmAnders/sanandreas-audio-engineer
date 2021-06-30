@@ -53,8 +53,8 @@ const App = () => {
 };
 {
   {
-    /*   <ScrollToTop />
-    
+    /*  
+          <ScrollToTop />
 
         <Footer /> */
   }

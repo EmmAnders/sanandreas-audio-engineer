@@ -134,7 +134,7 @@ const Project = (props) => {
             );
           }
         })}
-   </div>
+    </div>
   );
 };
 

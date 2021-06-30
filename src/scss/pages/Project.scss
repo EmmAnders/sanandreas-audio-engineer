@@ -186,7 +186,7 @@
 
     div p {
       font-size: $paragraphL;
-      line-height: 2.5rem; 
+      line-height: 2.5rem;
     }
 
     @include tablet {
@@ -232,6 +232,7 @@
   .section-6 {
     display: flex;
     align-items: center;
+    margin-left: $page-margin;
 
     img {
       height: 1.3rem;
@@ -243,7 +244,6 @@
 
     a {
       font-size: $paragraphL;
-      color: $grey;
       @include desktop {
         font-size: $paragraphXL;
       }
