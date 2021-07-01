@@ -2,6 +2,7 @@
 @import "../Mixins.scss";
 
 .project-page {
+  margin-bottom: 10vh;
   @include desktop {
     margin-bottom: 5vh;
   }
@@ -14,8 +15,13 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height: 70vh;
     margin-left: $page-margin;
+    height: 30vh;
+    margin-top: 10vh;
+
+    @include tablet {
+      height: 70vh;
+    }
 
     h1 {
       font-size: $headline;
@@ -47,8 +53,12 @@
     margin-left: $page-margin;
     @include tablet {
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
+    }
+
+    @include desktop {
+      grid-template-columns: 1fr 3fr;
     }
 
     img {
@@ -60,6 +70,18 @@
     h2 {
       font-size: $paragraph;
       font-weight: bold;
+      @include desktop {
+        margin-right: 0.5rem;
+      }
+    }
+
+    p {
+      line-height: 1.5rem;
+      font-size: $paragraph;
+
+      @include desktop {
+        width: 80%;
+      }
     }
 
     .columnLayout,
@@ -68,14 +90,14 @@
     }
 
     .rowLayout {
-      grid-template-columns: repeat(2, auto);
+      width: 70%;
+      margin: 0 auto;
 
-      h2 {
-        margin-right: 0.5rem;
-      }
-
-      p {
+      @include tablet {
         width: 100%;
+      }
+      @include desktop-lg {
+        grid-template-columns: repeat(2, auto);
       }
     }
 
@@ -86,7 +108,11 @@
       padding-bottom: $section-mb-mobile;
 
       @include tablet {
-        grid-template-columns: 100px auto;
+        grid-template-columns: 15px auto;
+      }
+
+      @include desktop {
+        grid-template-columns: 15px auto;
       }
       h2 {
         transform: translateX(100%) rotate(-90deg);
@@ -101,9 +127,6 @@
         position: relative;
         overflow: hidden;
 
-        @include tablet {
-          height: 40vh;
-        }
         @include desktop {
           height: 70vh;
         }
@@ -120,9 +143,13 @@
     align-items: center;
 
     .img-container {
-      display: flex;
-      align-items: flex-end;
       width: 100%;
+
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+      }
 
       .img-1,
       .img-2 {
@@ -138,10 +165,11 @@
 
       .img-1 {
         margin-right: 2px;
+        margin-bottom: 2rem;
         @include tablet {
           height: 45vh;
+          margin-bottom: 0rem;
         }
-
         @include desktop {
           height: 60vh;
         }
@@ -181,29 +209,29 @@
   }
 
   .section-3 {
-    width: 50vw;
-    margin: 0 auto;
+    margin-left: $page-margin;
+    margin-right: $page-margin;
 
     div p {
-      font-size: $paragraphL;
-      line-height: 2.5rem;
+      font-size: $paragraph;
+      line-height: 1.5rem;
     }
 
     @include tablet {
       display: flex;
       align-items: center;
 
-      p {
-        font-size: $paragraphXL;
+      div p {
+        font-size: $paragraphL;
+        line-height: 2.5rem;
       }
     }
   }
 
   .section-4 {
-    /* margin-left: $page-margin;
-    margin-right: $page-margin; */
-    width: 50vw;
-    margin: 0 auto;
+    margin-left: $page-margin;
+    margin-right: $page-margin;
+    margin-bottom: 15vh;
 
     .container {
       position: relative;

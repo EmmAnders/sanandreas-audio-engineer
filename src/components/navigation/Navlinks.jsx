@@ -26,8 +26,7 @@ const Navlinks = (props) => {
               onClick={props.onClick}
               to={link.to}
               activeStyle={{
-                color: "#000000",
-                fontStyle: "italic",
+                color: "rgba(0, 0, 0, 0.5)",
               }}
             >
               {link.name}
