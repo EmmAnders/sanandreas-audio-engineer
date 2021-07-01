@@ -28,25 +28,24 @@ const App = () => {
   return (
     <>
       <ContextProvider>
+        <ScrollToTop />
         <Navbar />
         <main className="container">
-          {routes.map(({ path, Component }) => (
-            <Route key={path} path={path} exact>
-              {({ match }) => (
-                <CSSTransition
-                  in={match != null}
-                  timeout={1200}
-                  classNames="page"
-                  unmountOnExit
-                >
-                  <div className="page">
-                    <Component />
-                  </div>
-                </CSSTransition>
-              )}
-            </Route>
-          ))}
+          <Route
+            render={({ location }) => (
+              <Switch location={location} key={location.pathname}>
+                {routes.map(({ path, Component }) => (
+                  <Route key={path} path={path} exact>
+                    <>
+                      <Component />
+                    </>
+                  </Route>
+                ))}
+              </Switch>
+            )}
+          />
         </main>
+        <Footer />
       </ContextProvider>
     </>
   );
@@ -56,7 +55,7 @@ const App = () => {
     /*  
           <ScrollToTop />
 
-        <Footer /> */
+      */
   }
   /*  <Route
           render={({ location }) => (

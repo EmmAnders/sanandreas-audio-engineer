@@ -39,7 +39,8 @@ const Project = (props) => {
         },
       });
 
-      exptl.from(el, {
+      exptl.from(el, 0.8, {
+        delay: 0.5,
         y: 100,
         autoAlpha: 0,
         duration: 1,
@@ -52,33 +53,34 @@ const Project = (props) => {
       autoAlpha: 0,
       duration: 1,
     });
-  }, [revealContent.current, heading]);
+  }, [revealContent.current]);
 
+  console.log("addToRef", revealContent.current);
   return (
-    <div className="project">
+    <div className="project-page">
       {projects &&
         projects.map((p) => {
-          if (p.title.replace(/\s+/g, "-").toLowerCase() == title) {
+          if (p.title.replace(/\s+/g, "-").toLowerCase() === title) {
             return (
-              <div ref={heading} className="project" key={p.id}>
-                <section className="title">
+              <div key={p.id}>
+                <section ref={heading} className="title">
                   <h1>{p.title}</h1>
                 </section>
 
                 {/*     {p.image && ( */}
                 <>
                   <section className="section-1">
-                    <div ref={addToRefs} className="rowLayout">
+                    <div className="rowLayout">
                       {p.summary && (
                         <>
-                          <h2>Overview</h2>
-                          <p>{p.summary}</p>
+                          <h2 ref={addToRefs}>Overview</h2>
+                          <p ref={addToRefs}>{p.summary}</p>
                         </>
                       )}
                     </div>
 
                     <div className="columnLayout">
-                      <h2>{p.year}</h2>
+                      <h2 ref={addToRefs}>{p.year}</h2>
                       <div className="img-container">
                         <img ref={addToRefs} src={sample} alt="" />
                       </div>
@@ -109,22 +111,24 @@ const Project = (props) => {
 
                 {p.video && (
                   <div className="section-4">
-                    <iframe
-                      className="video-player"
-                      ref={addToRefs}
-                      src={p.video}
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      height="315"
-                      width="560"
-                    ></iframe>
+                    <div className="container">
+                      <iframe
+                        className="video-player"
+                        ref={addToRefs}
+                        src={p.video}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        height="100%"
+                        width="100%"
+                      ></iframe>
+                    </div>
                   </div>
                 )}
 
                 {p.github && (
-                  <div className="section-6">
+                  <div className="section-5">
                     <img src={arrow} alt="corner-up-right-arrow" />
 
                     <a href={p.github}>VIEW PROJECT ON GITHUB</a>

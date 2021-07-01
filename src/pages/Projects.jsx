@@ -78,7 +78,6 @@ const Projects = () => {
   const handleClickToProjectId = (title) => {
     let title1 = title.replace(/\s+/g, "-").toLowerCase();
     history.push(`/work/${title1}`);
-    console.log(title1);
   };
 
   return (
