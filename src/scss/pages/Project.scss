@@ -1,10 +1,7 @@
 @import "../variables.scss";
 @import "../Mixins.scss";
 
-.project {
-  margin-bottom: 15vh;
-  margin-top: 15vh;
-
+.project-page {
   @include desktop {
     margin-bottom: 5vh;
   }
@@ -18,6 +15,7 @@
     display: flex;
     align-items: center;
     height: 70vh;
+    margin-left: $page-margin;
 
     h1 {
       font-size: $headline;
@@ -46,6 +44,7 @@
   .section-1 {
     display: flex;
     flex-direction: column-reverse;
+    margin-left: $page-margin;
     @include tablet {
       display: grid;
       grid-template-columns: 1fr 3fr;
@@ -120,13 +119,13 @@
     display: flex;
     align-items: center;
 
-    .container {
+    .img-container {
       display: flex;
       align-items: flex-end;
       width: 100%;
 
-      .img-container-1,
-      .img-container-2 {
+      .img-1,
+      .img-2 {
         position: relative;
         overflow: hidden;
         width: 100%;
@@ -137,7 +136,7 @@
         }
       }
 
-      .img-container-1 {
+      .img-1 {
         margin-right: 2px;
         @include tablet {
           height: 45vh;
@@ -158,7 +157,7 @@
         }
       }
 
-      .img-container-2 {
+      .img-2 {
         @include tablet {
           display: flex;
           align-items: flex-end;
@@ -182,8 +181,12 @@
   }
 
   .section-3 {
-    p {
+    width: 50vw;
+    margin: 0 auto;
+
+    div p {
       font-size: $paragraphL;
+      line-height: 2.5rem;
     }
 
     @include tablet {
@@ -197,38 +200,31 @@
   }
 
   .section-4 {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 35px;
-    height: 0;
-    overflow: hidden;
+    /* margin-left: $page-margin;
+    margin-right: $page-margin; */
+    width: 50vw;
+    margin: 0 auto;
 
-    .video-player {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px;
+      height: 0;
+      overflow: hidden;
+      .video-player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   .section-5 {
-    position: relative;
-    padding-bottom: 11vh;
-    padding-top: 10px;
-    height: 0;
-    overflow: hidden;
-
-    .music-player {
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-  }
-
-  .section-6 {
     display: flex;
     align-items: center;
+    margin-left: $page-margin;
 
     img {
       height: 1.3rem;
@@ -240,7 +236,6 @@
 
     a {
       font-size: $paragraphL;
-      color: $grey;
       @include desktop {
         font-size: $paragraphXL;
       }

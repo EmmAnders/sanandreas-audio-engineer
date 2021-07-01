@@ -8,7 +8,8 @@ const Home = () => {
   gsap.registerPlugin(TextPlugin);
 
   let element = useRef();
-  let container = useRef();
+  let line1 = useRef(null);
+  let line2 = useRef(null);
 
   function switch_text(el, txt, delay, callback) {
     setTimeout(function () {
@@ -26,7 +27,7 @@ const Home = () => {
   function init() {
     switch_text(element.current, "AUDIO ENGINEER", 0);
     switch_text(element.current, "SOUND DESIGNER", 4000);
-    switch_text(element.current, "FRONT END DEVELOPER", 8000);
+    switch_text(element.current, "FRONT-END DEVELOPER", 8000);
     switch_text(element.current, "DJ", 10000, function () {
       // run again after 6s
       setTimeout(init, 3000);
@@ -34,23 +35,33 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if (container.current) {
-      gsap.from(container.current, {
-        duration: 1,
-        y: "50",
-        opacity: 0,
-        delay: 0.6,
-      });
-      init();
-    }
-  }, []);
+    gsap.from([line1, line2], 0.8, {
+      delay: 0.8,
+      ease: "power3.out",
+      y: 150,
+      stagger: {
+        amount: 0.15,
+      },
+    });
+
+    init();
+  }, [line1, line2]);
 
   return (
-    <div ref={container} className="home">
+    <div className="inner">
       <h1>
-        Freelance <span ref={element}></span>
+        <div className="line-wrap">
+          <div ref={(el) => (line1 = el)} className="line">
+            Freelance <span ref={element}></span>
+          </div>
+        </div>
+
+        <div className="line-wrap">
+          <div ref={(el) => (line2 = el)} className="line">
+            Based in Copenhagen
+          </div>
+        </div>
       </h1>
-      <h1>Based in Copenhagen.</h1>
     </div>
   );
 };

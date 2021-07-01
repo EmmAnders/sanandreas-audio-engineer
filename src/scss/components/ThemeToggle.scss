@@ -1,16 +1,17 @@
 @import "../Variables.scss";
 @import "../Mixins.scss";
 
-.toggleContainer {
-}
-
 .toggleBtn {
   border: none;
   border-radius: 50px;
   font-size: 0.5rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.3rem 1.5rem;
   background: $bg-color-dark;
   color: $white-text;
+  @include tablet {
+    font-size: $small;
+    padding: 0.5rem 1.5rem;
+  }
 }
 
 body.dark-mode {

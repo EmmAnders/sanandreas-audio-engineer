@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 const Navlinks = (props) => {
   const links = [
     {
-      to: "/projects",
-      name: "PROJECTS",
+      to: "/work",
+      name: "WORK",
     },
     {
       to: "/music-blog",
@@ -25,11 +25,10 @@ const Navlinks = (props) => {
               key={i}
               onClick={props.onClick}
               to={link.to}
-              activeStyle={
-                {
-                  /*     color: "#B5B5B5", */
-                }
-              }
+              activeStyle={{
+                color: "#000000",
+                fontStyle: "italic",
+              }}
             >
               {link.name}
             </NavLink>
