@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  useRef,
-  useContext,
-} from "react";
+import React, { useCallback, useContext } from "react";
 
 import "../scss/components/Tabs.scss";
 import { Context } from "../contexts/Context";

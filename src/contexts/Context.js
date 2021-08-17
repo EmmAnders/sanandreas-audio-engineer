@@ -11,7 +11,7 @@ const ContextProvider = (props) => {
     setProjects([...TechProjectsData, ...MusicProductionData]);
   }, []);
 
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("Tech Projects");
 
   const values = {
     activeTab,

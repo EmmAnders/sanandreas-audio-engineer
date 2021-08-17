@@ -1,9 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useRef, useContext } from "react";
 
-import { CSSTransition } from "react-transition-group";
-import { Power3, gsap } from "gsap";
-
 import ContextProvider from "./contexts/Context";
 
 import "./App.scss";
@@ -15,6 +12,7 @@ import Home from "./pages/Home";
 import Work from "./pages/Projects";
 import Project from "./pages/Project";
 import MusicBlog from "./pages/MusicBlog";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -23,6 +21,7 @@ const App = () => {
     { path: "/work", name: "Work", Component: Work },
     { path: "/work/:title", name: "Project", Component: Project },
     { path: "/music-blog", name: "Music Blog", Component: MusicBlog },
+    { path: "/contact", name: "Contact", Component: Contact },
   ];
 
   return (
@@ -57,16 +56,7 @@ const App = () => {
 
       */
   }
-  /*  <Route
-          render={({ location }) => (
-            <Switch location={location} key={location.pathname}>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/work" component={Work} />
-              <Route exact path="/work/:title" component={Project} />
-              <Route exact path="/music-blog" component={MusicBlog} />
-            </Switch>
-          )}
-        /> */
+
 }
 
 export default App;

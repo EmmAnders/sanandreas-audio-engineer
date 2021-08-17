@@ -17,7 +17,40 @@
 body.dark-mode {
   background: $bg-color-dark;
   color: $white-text;
-  a,
+
+  header,
+  footer {
+    background: $bg-color-dark;
+
+    a {
+      color: #f7f7f774;
+    }
+
+    .logo {
+      a {
+        color: $white-text;
+      }
+    }
+
+    .menu-btn {
+      color: $white-text;
+    }
+
+    .mobileNav {
+      background: $bg-color-dark;
+
+      .activeLink {
+        color: $white-text;
+      }
+    }
+
+    .desktopNav {
+      .activeLink {
+        color: $white-text;
+      }
+    }
+  }
+
   .tabs__tab {
     color: #f7f7f774;
   }
@@ -29,17 +62,19 @@ body.dark-mode {
   .tabs__tab-active:after {
     border-bottom: 2px solid $white-text;
   }
-  /* 
-  .tabs__tab:hover {
-    color: $white-text;
-  } */
 
   .toggleBtn {
     background: $bg-color-light;
     color: $black-text;
   }
 
-  footer {
-    background: $bg-color-dark;
+  .github {
+    a {
+      color: $white-text;
+    }
+
+    .arrow {
+      color: $white-text;
+    }
   }
 }

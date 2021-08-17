@@ -1,7 +1,5 @@
 import "../scss/components/Card.scss";
 
-import sampleImage from "../assets/sample.jpg";
-
 const Card = (props) => {
   return (
     <div
@@ -9,7 +7,7 @@ const Card = (props) => {
       className={`cardContainer ${props.className}`}
       key={props.key}
     >
-      <img className="img" src={sampleImage} alt="" />
+      <img src={props.src} alt="" />
       <h2>{props.title}</h2>
       <p>{props.desc}</p>
     </div>

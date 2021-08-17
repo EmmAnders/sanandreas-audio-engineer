@@ -1,16 +1,19 @@
 import { useHistory } from "react-router-dom";
-import { useState, useEffect, useRef, useContext } from "react";
-
+import { useEffect, useRef, useContext } from "react";
 import { Context } from "../contexts/Context";
 
+// Data
 import { MusicProductionData } from "../data/MusicProductionData";
 import { TechProjectsData } from "../data/TechProjectsData";
 
+// Components
 import { Tabs, Tab } from "../components/Tabs";
 import Card from "../components/Card";
-import sampleImage from "../assets/sample.jpg";
+
+// Css
 import "../scss/pages/Projects.scss";
 
+//Animation
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -43,8 +46,8 @@ const Projects = () => {
             gsap.to(batch, {
               opacity: 1,
               y: 0,
-              delay: 0.8,
-              stagger: { each: 0.2, grid: [1, 3] },
+              delay: 0.4,
+              stagger: { each: 0.3, grid: [1, 3] },
               overwrite: true,
             }),
           onLeave: (batch) =>
@@ -67,8 +70,8 @@ const Projects = () => {
   }, [activeTab]);
 
   useEffect(() => {
-    gsap.from(tabs.current, 0.8, {
-      delay: 0.5,
+    gsap.from(tabs.current, 0.5, {
+      delay: 0.3,
       y: 100,
       autoAlpha: 0,
       duration: 1,
@@ -83,38 +86,6 @@ const Projects = () => {
   return (
     <div className="projects">
       <Tabs>
-        <Tab label={"All"} tabName={"ALL"}>
-          <div className="wrapper">
-            {TechProjectsData.map((data) => {
-              return (
-                <div ref={addToRefs}>
-                  <Card
-                    src={sampleImage}
-                    onClick={() => handleClickToProjectId(data.title)}
-                    key={data.title}
-                    className="item"
-                    title={data.title.toUpperCase()}
-                    desc={data.descShort}
-                  ></Card>
-                </div>
-              );
-            })}
-
-            {MusicProductionData.map((data, i) => {
-              return (
-                <div ref={addToRefs}>
-                  <Card
-                    onClick={() => handleClickToProjectId(data.title)}
-                    className="item"
-                    key={data.title}
-                    title={data.title.toUpperCase()}
-                  ></Card>
-                </div>
-              );
-            })}
-          </div>
-        </Tab>
-
         <Tab label={"Tech Projects"} tabName={"TECH PROJECTS"}>
           <div className="wrapper">
             {TechProjectsData.map((data, i) => {
@@ -126,6 +97,7 @@ const Projects = () => {
                     key={data.title}
                     title={data.title.toUpperCase()}
                     desc={data.descShort}
+                    src={data.img1}
                   ></Card>
                 </div>
               );

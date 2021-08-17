@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState, useContext } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { Context } from "../contexts/Context";
 
 import "../scss/pages/Project.scss";
-import sample from "../assets/sample.jpg";
-import arrow from "../assets/icons/corner-up-right.svg";
+
+import { ReactComponent as Arrow } from "../assets/icons/corner-up-right.svg";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,7 +15,7 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger);
 }
 
-const Project = (props) => {
+const Project = () => {
   const { projects } = useContext(Context);
   let { title } = useParams();
 
@@ -30,32 +30,31 @@ const Project = (props) => {
   };
 
   useEffect(() => {
-    revealContent.current.forEach((el, index) => {
+    revealContent.current.forEach((el) => {
       let exptl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
           end: () => `+=${el.offsetHeight}`,
-          scrub: 3,
+          scrub: 2,
         },
       });
 
-      exptl.from(el, 0.8, {
+      exptl.from(el, 0.5, {
         delay: 0.5,
         y: 100,
         autoAlpha: 0,
-        duration: 1,
+        duration: 0.5,
       });
     });
 
-    gsap.from(heading.current, 0.8, {
+    gsap.from(heading.current, 0.5, {
       delay: 0.5,
       y: 100,
       autoAlpha: 0,
-      duration: 1,
+      duration: 0.5,
     });
   }, [revealContent.current]);
 
-  console.log("addToRef", revealContent.current);
   return (
     <div className="project-page">
       {projects &&
@@ -67,7 +66,6 @@ const Project = (props) => {
                   <h1>{p.title}</h1>
                 </section>
 
-                {/*     {p.image && ( */}
                 <>
                   <section className="section-1">
                     <div className="rowLayout">
@@ -78,27 +76,30 @@ const Project = (props) => {
                         </>
                       )}
                     </div>
+                    {p.img1 && (
+                      <div className="columnLayout">
+                        <h2 ref={addToRefs}>{p.year}</h2>
 
-                    <div className="columnLayout">
-                      <h2 ref={addToRefs}>{p.year}</h2>
+                        <div className="img-container">
+                          <img ref={addToRefs} src={p.img1} alt={p.title} />
+                        </div>
+                      </div>
+                    )}
+                  </section>
+                  {p.img2 && (
+                    <section className="section-2">
                       <div className="img-container">
-                        <img ref={addToRefs} src={sample} alt="" />
-                      </div>
-                    </div>
-                  </section>
-                  <section className="section-2">
-                    <div className="img-container">
-                      <div className="img-1">
-                        <img ref={addToRefs} src={sample} alt="" />
-                      </div>
+                        <div className="img-1">
+                          <img ref={addToRefs} src={p.img2} alt={p.title} />
+                        </div>
 
-                      <div className="img-2">
-                        <img ref={addToRefs} src={sample} alt="" />
+                        <div className="img-2">
+                          <img ref={addToRefs} src={p.img3} alt={p.title} />
+                        </div>
                       </div>
-                    </div>
-                  </section>
+                    </section>
+                  )}
                 </>
-                {/*      )} */}
 
                 {p.body && (
                   <div ref={addToRefs} className="section-3">
@@ -128,8 +129,8 @@ const Project = (props) => {
                 )}
 
                 {p.github && (
-                  <div className="section-5">
-                    <img src={arrow} alt="corner-up-right-arrow" />
+                  <div className="section-5 github">
+                    <Arrow className="arrow"></Arrow>
 
                     <a href={p.github}>VIEW PROJECT ON GITHUB</a>
                   </div>

@@ -1,10 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import NavLinks from "./Navlinks";
 import "../../scss/Variables.scss";
 import { gsap } from "gsap";
-
-import { Squeeze as Hamburger } from "hamburger-react";
 
 import "../../scss/navigation/Navbar.scss";
 
@@ -15,8 +13,6 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
-
-    /*    gsap.from(header.current, { duration: 1, y: "50", opacity: 0, delay: 0.3 }); */
   }, []);
 
   return (
@@ -27,13 +23,8 @@ const Navbar = () => {
         </div>
         {width < breakpoint ? (
           <div>
-            <div className="burger">
-              <Hamburger
-                color="#262626"
-                label="Show menu burger"
-                toggled={isOpen}
-                toggle={setOpen}
-              />
+            <div onClick={() => setOpen(!isOpen)} className="menu-btn">
+              MENU
             </div>
             {isOpen ? (
               <NavLinks

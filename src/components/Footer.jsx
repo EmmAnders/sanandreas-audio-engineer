@@ -8,13 +8,15 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <Link to="">GITHUB</Link>
+          <Link to="https://github.com/sandy999999">GITHUB</Link>
         </li>
         <li>
-          <Link to="">SOUNDCLOUD</Link>
+          <Link to="https://soundcloud.com/sanandreasaudio">SOUNDCLOUD</Link>
         </li>
         <li>
-          <Link to="">TUMBLR</Link>
+          <Link to="https://www.tumblr.com/blog/view/sanandreas999">
+            TUMBLR
+          </Link>
         </li>
         <li>
           <Link to="https://sanandreasaudio.bandcamp.com/">BANDCAMP</Link>

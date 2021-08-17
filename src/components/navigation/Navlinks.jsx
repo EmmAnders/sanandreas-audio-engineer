@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "../../scss/navigation/Navbar.scss";
 
 const Navlinks = (props) => {
   const links = [
@@ -16,6 +17,8 @@ const Navlinks = (props) => {
     },
   ];
 
+  
+
   return (
     <ul className={props.className}>
       {links.map((link, i) => {
@@ -25,9 +28,7 @@ const Navlinks = (props) => {
               key={i}
               onClick={props.onClick}
               to={link.to}
-              activeStyle={{
-                color: "rgba(0, 0, 0, 0.5)",
-              }}
+              activeClassName={'activeLink'}
             >
               {link.name}
             </NavLink>

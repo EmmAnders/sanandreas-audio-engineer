@@ -29,7 +29,6 @@ const Home = () => {
     switch_text(element.current, "SOUND DESIGNER", 4000);
     switch_text(element.current, "FRONT-END DEVELOPER", 8000);
     switch_text(element.current, "DJ", 10000, function () {
-      // run again after 6s
       setTimeout(init, 3000);
     });
   }
