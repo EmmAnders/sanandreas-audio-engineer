@@ -108,12 +108,13 @@ const Projects = () => {
 
         <Tab label={"Music Production"} tabName={"MUSIC PRODUCTION"}>
           <div className="wrapper">
-            {MusicProductionData.map((data) => {
+            {MusicProductionData.map((data, i) => {
               return (
-                <div className="iframe-wrapper" ref={addToRefs}>
+                <div key={i} className="iframe-wrapper" ref={addToRefs}>
                   <iframe
                     scrolling="no"
-                    frameborder="no"
+                    title={data.bandcampUrl}
+                    frameBorder="no"
                     src={data.bandcampUrl}
                   ></iframe>
                 </div>
