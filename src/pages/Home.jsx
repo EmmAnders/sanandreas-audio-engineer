@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useEffect, useRef } from "react";
 import { TextPlugin } from "gsap/dist/TextPlugin";
-import { gsap, power2, TweenLite } from "gsap";
+import { gsap } from "gsap";
 
 import "../scss/pages/Home.scss";
 

@@ -53,7 +53,7 @@ const Project = () => {
       autoAlpha: 0,
       duration: 0.5,
     });
-  }, [revealContent.current]);
+  }, []);
 
   return (
     <div className="project-page">
@@ -117,10 +117,10 @@ const Project = () => {
                         className="video-player"
                         ref={addToRefs}
                         src={p.video}
-                        title="YouTube video player"
-                        frameborder="0"
+                        title={p.title}
+                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
+                        allowFullScreen
                         height="100%"
                         width="100%"
                       ></iframe>

@@ -1,18 +1,15 @@
 import { Route, Switch } from "react-router-dom";
-import { useEffect, useRef, useContext } from "react";
 
 import ContextProvider from "./contexts/Context";
 
 import "./App.scss";
 import "./scss/components/ThemeToggle.scss";
 
-import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
 import Work from "./pages/Projects";
 import Project from "./pages/Project";
 import MusicBlog from "./pages/MusicBlog";
-import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -21,13 +18,11 @@ const App = () => {
     { path: "/work", name: "Work", Component: Work },
     { path: "/work/:title", name: "Project", Component: Project },
     { path: "/music-blog", name: "Music Blog", Component: MusicBlog },
-    { path: "/contact", name: "Contact", Component: Contact },
   ];
 
   return (
     <>
       <ContextProvider>
-        <ScrollToTop />
         <Navbar />
         <main className="container">
           <Route
@@ -49,14 +44,5 @@ const App = () => {
     </>
   );
 };
-{
-  {
-    /*  
-          <ScrollToTop />
-
-      */
-  }
-
-}
 
 export default App;

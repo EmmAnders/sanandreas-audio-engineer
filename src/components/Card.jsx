@@ -5,7 +5,7 @@ const Card = (props) => {
     <div
       onClick={props.onClick}
       className={`cardContainer ${props.className}`}
-      key={props.key}
+      key={props.cardKey}
     >
       <img src={props.src} alt="" />
       <h2>{props.title}</h2>

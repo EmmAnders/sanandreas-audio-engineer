@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavLinks from "./Navlinks";
-import "../../scss/Variables.scss";
-import { gsap } from "gsap";
 
+import "../../scss/Variables.scss";
 import "../../scss/navigation/Navbar.scss";
 
 const Navbar = () => {

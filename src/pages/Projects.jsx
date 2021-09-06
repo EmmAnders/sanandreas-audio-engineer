@@ -81,6 +81,7 @@ const Projects = () => {
   const handleClickToProjectId = (title) => {
     let title1 = title.replace(/\s+/g, "-").toLowerCase();
     history.push(`/work/${title1}`);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -90,11 +91,11 @@ const Projects = () => {
           <div className="wrapper">
             {TechProjectsData.map((data, i) => {
               return (
-                <div ref={addToRefs}>
+                <div key={i} ref={addToRefs}>
                   <Card
                     onClick={() => handleClickToProjectId(data.title)}
                     className={"item"}
-                    key={data.title}
+                    cardKey={i}
                     title={data.title.toUpperCase()}
                     desc={data.descShort}
                     src={data.img1}
