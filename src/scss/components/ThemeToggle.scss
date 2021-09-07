@@ -1,0 +1,80 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+.toggleBtn {
+  border: none;
+  border-radius: 50px;
+  font-size: 0.5rem;
+  padding: 0.3rem 1.5rem;
+  background: $bg-color-dark;
+  color: $white-text;
+  @include tablet {
+    font-size: $small;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+body.dark-mode {
+  background: $bg-color-dark;
+  color: $white-text;
+
+  header,
+  footer {
+    background: $bg-color-dark;
+
+    a {
+      color: #f7f7f774;
+    }
+
+    .logo {
+      a {
+        color: $white-text;
+      }
+    }
+
+    .menu-btn {
+      color: $white-text;
+    }
+
+    .mobileNav {
+      background: $bg-color-dark;
+
+      .activeLink {
+        color: $white-text;
+      }
+    }
+
+    .desktopNav {
+      .activeLink {
+        color: $white-text;
+      }
+    }
+  }
+
+  .tabs__tab {
+    color: #f7f7f774;
+  }
+
+  .tabs__tab-active {
+    color: $white-text;
+  }
+
+  .tabs__tab-active:after {
+    border-bottom: 2px solid $white-text;
+  }
+
+  .toggleBtn {
+    background: $bg-color-light;
+    color: $black-text;
+  }
+
+  .github {
+    a {
+      color: $white-text;
+    }
+
+    .arrow {
+      color: $white-text;
+    }
+  }
+}

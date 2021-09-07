@@ -1,0 +1,269 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+.project-page {
+  margin-bottom: 10vh;
+  @include desktop {
+    margin-bottom: 5vh;
+  }
+  h2,
+  h3 {
+    text-transform: uppercase;
+  }
+
+  .section-5,
+  .section-4,
+  .section-3,
+  .section-1,
+  .title {
+    margin-left: $page-margin;
+  }
+
+  .title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 30vh;
+    margin-top: 10vh;
+
+    @include tablet {
+      height: 70vh;
+    }
+
+    h1 {
+      font-size: $headline;
+      font-family: $secondary-font;
+      font-weight: 200;
+
+      @include tablet {
+        font-size: $headlineXL;
+      }
+    }
+  }
+
+  .section-1,
+  .section-2,
+  .section-3 {
+    padding-bottom: $section-mb-mobile;
+
+    @include tablet {
+      padding-bottom: $section-mb-tablet;
+    }
+    @include desktop {
+      padding-bottom: $section-mb-desktop;
+    }
+  }
+
+  .section-1 {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    @include desktop {
+      grid-template-columns: 1fr 3fr;
+    }
+
+    img {
+      clip-path: inset(0% 0% 0% 0%);
+      width: 100%;
+      height: 100%;
+    }
+
+    h2 {
+      font-size: $paragraph;
+      font-weight: bold;
+      @include desktop {
+        margin-right: 0.5rem;
+      }
+    }
+
+    p {
+      line-height: 1.5rem;
+      font-size: $paragraph;
+
+      @include desktop {
+        width: 80%;
+      }
+    }
+
+    .columnLayout,
+    .rowLayout {
+      display: grid;
+    }
+
+    .rowLayout {
+      width: 70%;
+      margin: 0 auto;
+
+      @include tablet {
+        width: 100%;
+      }
+      @include desktop-lg {
+        grid-template-columns: repeat(2, auto);
+      }
+    }
+
+    .columnLayout {
+      display: grid;
+      grid-template-columns: 15px auto;
+      align-items: flex-end;
+      padding-bottom: $section-mb-mobile;
+
+      @include tablet {
+        grid-template-columns: 15px auto;
+      }
+
+      @include desktop {
+        grid-template-columns: 15px auto;
+      }
+      h2 {
+        transform: translateX(100%) rotate(-90deg);
+        transform-origin: left bottom;
+        justify-self: end;
+        text-transform: uppercase;
+      }
+
+      .img-container {
+        height: 40vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        @include desktop {
+          height: 70vh;
+        }
+
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .section-2 {
+    display: flex;
+    align-items: center;
+
+    .img-container {
+      width: 100%;
+
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+
+      .img-1,
+      .img-2 {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .img-1 {
+        margin-right: 2px;
+        margin-bottom: 2rem;
+        @include tablet {
+          height: 45vh;
+          margin-bottom: 0rem;
+        }
+        @include desktop {
+          height: 60vh;
+        }
+
+        img {
+          @include tablet {
+            height: 90vh;
+          }
+
+          @include desktop {
+            height: 120vh;
+          }
+        }
+      }
+
+      .img-2 {
+        @include tablet {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          height: 30vh;
+        }
+
+        img {
+          @include tablet {
+            height: 40vh;
+            width: 80%;
+          }
+
+          @include desktop {
+            height: 60vh;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .section-3 {
+    margin-right: $page-margin;
+
+    div p {
+      font-size: $paragraph;
+      line-height: 1.5rem;
+    }
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+
+      div p {
+        font-size: $paragraphL;
+        line-height: 2.5rem;
+      }
+    }
+  }
+
+  .section-4 {
+    margin-bottom: 15vh;
+    margin-right: $page-margin;
+
+    .container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px;
+      height: 0;
+      overflow: hidden;
+      .video-player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .section-5 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10vh;
+
+    a {
+      font-size: $paragraphL;
+      @include desktop {
+        font-size: $paragraphXL;
+      }
+    }
+  }
+}

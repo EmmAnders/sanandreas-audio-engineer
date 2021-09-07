@@ -1,0 +1,81 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+.inner {
+  font-weight: 200;
+  position: fixed;
+  bottom: 8vh;
+  left: $page-margin;
+
+  h1 {
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 7vw; /* $paragraphL */
+
+    .line-wrap {
+      overflow: hidden;
+      height: 3rem;
+    }
+
+    span {
+      font-family: $secondary-font;
+      font-weight: light;
+      font-style: oblique;
+      letter-spacing: 0.1rem;
+      font-size: $small;
+    }
+
+    @include tablet {
+      /*   font-size: $paragraphXL; */
+      font-size: 7vw;
+      .line-wrap {
+        height: 5rem;
+      }
+
+      span {
+        font-size: $paragraphL;
+        padding-left: 1rem;
+      }
+    }
+
+    @include desktop {
+      /* font-size: $headlineL; */
+      font-size: 7vw;
+      .line-wrap {
+        height: 6rem;
+      }
+
+      span {
+        font-size: $paragraphXL;
+        padding-left: 0.5rem;
+      }
+    }
+
+    @include desktop-lg {
+      /*   font-size: $headlineXL; */
+      font-size: 7vw;
+      .line-wrap {
+        height: 7rem;
+      }
+
+      span {
+        font-size: $paragraphXL;
+        padding-left: 1rem;
+      }
+    }
+
+    @include desktop-xl {
+      /*   font-size: $headlineXL; */
+      font-size: 7vw;
+      .line-wrap {
+        height: 8rem;
+      }
+
+      span {
+        font-size: $paragraphXL;
+        padding-left: 1rem;
+      }
+    }
+  }
+}

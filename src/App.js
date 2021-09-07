@@ -1,23 +1,48 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+
+import ContextProvider from "./contexts/Context";
 
 import "./App.scss";
+import "./scss/components/ThemeToggle.scss";
 
+import Navbar from "./components/navigation/Navbar";
 import Home from "./pages/Home";
+import Work from "./pages/Projects";
+import Project from "./pages/Project";
 import MusicBlog from "./pages/MusicBlog";
-import Projects from "./pages/Projects";
-import ProjectDetails from "./pages/ProjectDetails";
+import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
+  const routes = [
+    { path: "/", name: "Home", Component: Home },
+    { path: "/work", name: "Work", Component: Work },
+    { path: "/work/:title", name: "Project", Component: Project },
+    { path: "/music-blog", name: "Music Blog", Component: MusicBlog },
+  ];
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/projects/:projectName" component={ProjectDetails} />
-        <Route exact path="/music-blog" component={MusicBlog} />
-      </BrowserRouter>
-    </div>
+    <>
+      <ContextProvider>
+        <Navbar />
+        <main className="container">
+          <Route
+            render={({ location }) => (
+              <Switch location={location} key={location.pathname}>
+                {routes.map(({ path, Component }) => (
+                  <Route key={path} path={path} exact>
+                    <>
+                      <Component />
+                    </>
+                  </Route>
+                ))}
+              </Switch>
+            )}
+          />
+        </main>
+        <Footer />
+      </ContextProvider>
+    </>
   );
-}
+};
 
 export default App;

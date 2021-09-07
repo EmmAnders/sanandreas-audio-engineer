@@ -1,0 +1,53 @@
+@import "../Variables.scss";
+@import "../Mixins.scss";
+
+.tabs__box {
+  margin: 0 -20px 20px -20px;
+}
+
+.tabs__box:after {
+  content: "";
+  margin: -4px 20px 0;
+  display: block;
+  border-bottom: 1px solid $light-grey;
+  margin-bottom: 3rem;
+}
+
+.tabs__tab {
+  text-decoration: none;
+  display: inline-block;
+
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: $small;
+  background: transparent;
+  color: $grey;
+  margin: 4px;
+
+  cursor: pointer;
+  @include tablet {
+    font-size: $paragraph;
+  }
+
+  @include desktop{
+    font-size: $paragraph;
+  }
+
+}
+
+/* .tabs__tab:hover {
+  color: $black-text;
+} */
+
+.tabs__tab-active {
+  color: $black-text;
+}
+
+.tabs__tab-active:after {
+  content: "";
+  display: block;
+  padding-top: 16px;
+  margin-bottom: -17px;
+  border-bottom: 1px solid $black-text;
+}
