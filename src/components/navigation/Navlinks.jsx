@@ -31,7 +31,7 @@ const Navlinks = (props) => {
       })}
       <li>
         <Link download target="_blank" to={resume}>
-          DOWNLOAD RESUMÉ
+          DOWNLOAD RESUME
         </Link>
       </li>
     </ul>
