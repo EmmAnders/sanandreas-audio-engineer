@@ -44,6 +44,7 @@ const Home = () => {
     });
 
     init();
+    // eslint-disable-next-line 
   }, [line1, line2]);
 
   return (
