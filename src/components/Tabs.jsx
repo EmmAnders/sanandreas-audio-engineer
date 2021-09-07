@@ -5,7 +5,7 @@ import { Context } from "../contexts/Context";
 
 function Tabs({ children }) {
   const { activeTab, setActiveTab } = useContext(Context);
-  const handleActiveTab = useCallback((label) => setActiveTab(label), []);
+  const handleActiveTab = useCallback((label) => setActiveTab(label), [activeTab]);
 
   const tabs = children.map((child) => (
     <button
