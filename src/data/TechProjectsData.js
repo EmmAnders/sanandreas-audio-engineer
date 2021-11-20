@@ -72,15 +72,6 @@ export const TechProjectsData = [
   {
     id: uuidv4(),
     year: "2021",
-    title: "Physical Models for Sound Synthesis",
-    descShort: "Modal Texture Synthesizer",
-    summary:
-      "Numerical sound synthesis. Modal texture synthesizer built in JUCE, using finite difference schemes.",
-  },
-
-  {
-    id: uuidv4(),
-    year: "2021",
     title: "Euclidean MIDI Rhythm Generator",
     descShort: "A Euclidean midi generator built in JUCE.",
     summary: "A Euclidean midi generator built in JUCE.",
