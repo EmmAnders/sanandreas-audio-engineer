@@ -29,11 +29,6 @@ const Navlinks = (props) => {
           </li>
         );
       })}
-      <li>
-        <Link download target="_blank" to={resume}>
-          DOWNLOAD RESUME
-        </Link>
-      </li>
     </ul>
   );
 };
